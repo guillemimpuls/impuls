@@ -4,60 +4,62 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>PANGOLA - Climate Tech & Environmental Solutions</title>
-    <meta name="description" content="Pangola és una holding empresarial d'empreses del sector del climate tech i neteja ambiental. Invertim en un futur sostenible.">
+    <meta name="description" content="Pangola és una holding empresarial d'empreses del sector del climate tech i neteja ambiental.">
+
+    <!-- GSAP & Plugins -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollToPlugin.min.js"></script>
+    <script src="https://unpkg.com/lenis@1.1.1/dist/lenis.min.js"></script>
+
     <style>
-        *,
-        :after,
-        :before {
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Space+Mono:wght@400;700&display=swap');
+
+        *, *::before, *::after {
             box-sizing: border-box;
-        }
-
-        * {
-            -webkit-tap-highlight-color: transparent;
-        }
-
-        ol,
-        ul {
-            list-style: none;
+            margin: 0;
             padding: 0;
         }
 
-        blockquote,
-        body,
-        dd,
-        dl,
-        figcaption,
-        figure,
-        h1,
-        h2,
-        h3,
-        h4,
-        input,
-        li,
-        ol,
-        p,
-        ul {
-            margin: 0;
-        }
-
-        h2,
-        h3,
-        h4 {
-            font: inherit;
+        :root {
+            --color-cream: #f2ede5;
+            --color-tan: #9f765e;
+            --color-brown: #47210f;
+            --color-red: #d03827;
+            --color-black: #1d1d17;
+            --color-grey: #595a51;
+            --font-primary: 'Space Mono', monospace;
+            --font-secondary: 'Inter', sans-serif;
+            --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+            --ease-out-quart: cubic-bezier(0.25, 1, 0.5, 1);
         }
 
         html {
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
-            overscroll-behavior: none;
-            scroll-behavior: smooth;
+            font-size: clamp(8px, 0.625vw, 10px);
+        }
+
+        html.lenis, html.lenis body {
+            height: auto;
+        }
+
+        .lenis.lenis-smooth {
+            scroll-behavior: auto !important;
+        }
+
+        .lenis.lenis-smooth [data-lenis-prevent] {
+            overscroll-behavior: contain;
+        }
+
+        .lenis.lenis-stopped {
+            overflow: hidden;
         }
 
         body {
-            margin: 0;
-            text-rendering: optimizeSpeed;
-            -webkit-text-size-adjust: 100%;
-            text-size-adjust: 100%;
+            font-family: var(--font-primary);
+            background: var(--color-black);
+            color: var(--color-cream);
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
         }
 
         a {
@@ -65,260 +67,315 @@
             text-decoration: none;
         }
 
-        img,
-        svg {
+        img {
             display: block;
-            user-select: none;
+            max-width: 100%;
         }
 
-        button {
-            cursor: pointer;
-        }
-
-        button,
-        input,
-        textarea {
-            appearance: none;
-            background: none;
-            border: 0;
-            color: inherit;
-            font: inherit;
-            margin: 0;
-            padding: 0;
-        }
-
-        /* Custom Fonts */
-        @font-face {
-            font-display: swap;
-            font-family: 'Inter';
-            font-style: normal;
-            font-weight: 300;
-            src: url('https://fonts.gstatic.com/s/inter/v13/UcCO3FwrK3iLTeHuS_fvQtMwCp50KnMw2boKoduKmMEVuOKfAZ9hjp-Ek-_EeA.woff2') format('woff2');
-        }
-
-        @font-face {
-            font-display: swap;
-            font-family: 'Inter';
-            font-style: normal;
-            font-weight: 400;
-            src: url('https://fonts.gstatic.com/s/inter/v13/UcCO3FwrK3iLTeHuS_fvQtMwCp50KnMw2boKoduKmMEVuLyfAZ9hjp-Ek-_EeA.woff2') format('woff2');
-        }
-
-        @font-face {
-            font-display: swap;
-            font-family: 'Inter';
-            font-style: normal;
-            font-weight: 600;
-            src: url('https://fonts.gstatic.com/s/inter/v13/UcCO3FwrK3iLTeHuS_fvQtMwCp50KnMw2boKoduKmMEVuGKYAZ9hjp-Ek-_EeA.woff2') format('woff2');
-        }
-
-        @font-face {
-            font-display: swap;
-            font-family: 'Space Mono';
-            font-style: normal;
-            font-weight: 400;
-            src: url('https://fonts.gstatic.com/s/spacemono/v12/i7dPIFZifjKcF5UAWdDRYEF8RQ.woff2') format('woff2');
-        }
-
-        @font-face {
-            font-display: swap;
-            font-family: 'Space Mono';
-            font-style: normal;
-            font-weight: 700;
-            src: url('https://fonts.gstatic.com/s/spacemono/v12/i7dMIFZifjKcF5UAWdDRaPpZYFKQHg.woff2') format('woff2');
-        }
-
-        :root {
-            --size: 1600;
-            --color-cream: #f2ede5;
-            --color-tan: #9f765e;
-            --color-brown: #47210f;
-            --color-red: #d03827;
-            --color-black: #1d1d17;
-            --color-grey: #595a51;
-            --ease-out-quart: cubic-bezier(.165, .84, .44, 1);
-            --ease-out-cubic: cubic-bezier(.215, .61, .355, 1);
-            --font-s: calc((100vw / var(--size)) * 10);
-            --font-primary: 'Space Mono', monospace;
-            --font-secondary: 'Inter', sans-serif;
-        }
-
-        @media(max-width: 600px) {
-            :root {
-                --size: 375;
-            }
-        }
-
-        html {
-            font-size: var(--font-s);
-        }
-
-        body {
+        /* ==================== LOADER ==================== */
+        .loader {
+            position: fixed;
+            inset: 0;
             background: var(--color-black);
-            color: var(--color-cream);
-            font-family: var(--font-primary);
-            font-size: 1.6rem;
-            line-height: 1.5;
+            z-index: 9999;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            gap: 4rem;
         }
 
-        /* Header */
+        .loader-logo {
+            font-family: var(--font-secondary);
+            font-size: 6rem;
+            font-weight: 600;
+            letter-spacing: 0.3em;
+            opacity: 0;
+            transform: translateY(20px);
+        }
+
+        .loader-progress {
+            width: 20rem;
+            height: 1px;
+            background: rgba(242, 237, 229, 0.2);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .loader-progress-bar {
+            position: absolute;
+            left: 0;
+            top: 0;
+            height: 100%;
+            width: 0%;
+            background: var(--color-tan);
+        }
+
+        .loader-text {
+            font-size: 1.2rem;
+            text-transform: uppercase;
+            letter-spacing: 0.3em;
+            opacity: 0;
+        }
+
+        /* ==================== CURSOR ==================== */
+        .cursor {
+            position: fixed;
+            width: 20px;
+            height: 20px;
+            border: 1px solid var(--color-tan);
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 9998;
+            transform: translate(-50%, -50%);
+            transition: width 0.3s, height 0.3s, background 0.3s, border-color 0.3s;
+            mix-blend-mode: difference;
+        }
+
+        .cursor.hover {
+            width: 60px;
+            height: 60px;
+            background: var(--color-tan);
+            border-color: var(--color-tan);
+        }
+
+        .cursor-dot {
+            position: fixed;
+            width: 6px;
+            height: 6px;
+            background: var(--color-cream);
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 9999;
+            transform: translate(-50%, -50%);
+        }
+
+        @media (max-width: 768px) {
+            .cursor, .cursor-dot { display: none; }
+        }
+
+        /* ==================== HEADER ==================== */
         .header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 2rem;
             position: fixed;
             top: 0;
             left: 0;
             right: 0;
+            padding: 2.5rem 4rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
             z-index: 100;
             mix-blend-mode: difference;
         }
 
         .logo {
             font-family: var(--font-secondary);
-            font-size: 2rem;
+            font-size: 1.8rem;
             font-weight: 600;
-            letter-spacing: 0.2em;
-            text-transform: uppercase;
+            letter-spacing: 0.25em;
+            cursor: pointer;
         }
 
         .nav {
             display: flex;
-            gap: 3rem;
-        }
-
-        @media(max-width: 600px) {
-            .nav {
-                display: none;
-            }
+            gap: 4rem;
         }
 
         .nav-link {
             font-size: 1.2rem;
             text-transform: uppercase;
-            letter-spacing: 0.1em;
+            letter-spacing: 0.15em;
             position: relative;
+            overflow: hidden;
+            cursor: pointer;
+        }
+
+        .nav-link span {
+            display: block;
+            transition: transform 0.5s var(--ease-out-expo);
         }
 
         .nav-link::after {
-            content: '';
+            content: attr(data-text);
             position: absolute;
-            bottom: -0.2rem;
+            top: 100%;
             left: 0;
-            width: 100%;
-            height: 1px;
-            background: currentColor;
-            transform: scaleX(0);
-            transform-origin: right;
-            transition: transform 0.4s var(--ease-out-cubic);
+            transition: transform 0.5s var(--ease-out-expo);
+        }
+
+        .nav-link:hover span {
+            transform: translateY(-100%);
         }
 
         .nav-link:hover::after {
-            transform: scaleX(1);
-            transform-origin: left;
+            transform: translateY(-100%);
         }
 
-        /* Hero Section */
+        @media (max-width: 768px) {
+            .header { padding: 2rem; }
+            .nav { display: none; }
+        }
+
+        /* ==================== HERO ==================== */
         .hero {
-            min-height: 100vh;
+            height: 100vh;
             display: flex;
             align-items: center;
             justify-content: center;
             position: relative;
-            background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 140 140'%3E%3Cpath fill='%23f2ede5' d='M0 0h3.5v3.5H0z' opacity='.1'/%3E%3C/svg%3E");
-            background-size: 14rem;
             overflow: hidden;
         }
 
+        .hero-bg {
+            position: absolute;
+            inset: 0;
+            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 0h2v2H0z' fill='%23f2ede5' fill-opacity='0.03'/%3E%3C/svg%3E");
+            background-size: 60px 60px;
+        }
+
+        .hero-gradient {
+            position: absolute;
+            width: 150vw;
+            height: 150vh;
+            background: radial-gradient(circle at center, var(--color-brown) 0%, transparent 50%);
+            opacity: 0.4;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
         .hero-content {
-            text-align: center;
+            position: relative;
             z-index: 2;
-            padding: 2rem;
+            text-align: center;
+            padding: 0 2rem;
         }
 
-        .hero-subtitle {
-            font-size: 1.2rem;
-            text-transform: uppercase;
-            letter-spacing: 0.3em;
-            color: var(--color-tan);
-            margin-bottom: 2rem;
-            display: flex;
+        .hero-label {
+            display: inline-flex;
             align-items: center;
-            justify-content: center;
-            gap: 1rem;
+            gap: 2rem;
+            margin-bottom: 4rem;
+            overflow: hidden;
         }
 
-        .hero-subtitle::before,
-        .hero-subtitle::after {
-            content: '';
-            width: 3rem;
+        .hero-label-line {
+            width: 6rem;
             height: 1px;
             background: var(--color-tan);
+            transform-origin: left;
+        }
+
+        .hero-label-text {
+            font-size: 1.2rem;
+            text-transform: uppercase;
+            letter-spacing: 0.4em;
+            color: var(--color-tan);
         }
 
         .hero-title {
             font-family: var(--font-secondary);
-            font-size: 8rem;
+            font-size: clamp(4rem, 10vw, 12rem);
             font-weight: 600;
             line-height: 0.95;
-            margin-bottom: 3rem;
-            letter-spacing: -0.03em;
+            margin-bottom: 4rem;
+            overflow: hidden;
         }
 
-        @media(max-width: 600px) {
-            .hero-title {
-                font-size: 4.5rem;
-            }
+        .hero-title .line {
+            display: block;
+            overflow: hidden;
         }
 
-        .hero-title span {
+        .hero-title .line-inner {
+            display: block;
+            transform: translateY(100%);
+        }
+
+        .hero-title .highlight {
             color: var(--color-tan);
+            font-style: italic;
         }
 
         .hero-text {
             font-family: var(--font-secondary);
-            font-size: 2rem;
+            font-size: clamp(1.6rem, 2vw, 2.2rem);
             max-width: 60rem;
-            margin: 0 auto 4rem;
-            opacity: 0.8;
+            margin: 0 auto 5rem;
+            opacity: 0.7;
+            line-height: 1.6;
         }
 
-        @media(max-width: 600px) {
-            .hero-text {
-                font-size: 1.6rem;
-            }
+        .hero-cta {
+            display: flex;
+            gap: 2rem;
+            justify-content: center;
+            flex-wrap: wrap;
         }
 
         .btn {
             display: inline-flex;
             align-items: center;
-            gap: 1rem;
-            background: var(--color-tan);
-            color: var(--color-black);
-            padding: 1.5rem 3rem;
+            gap: 1.2rem;
+            padding: 1.8rem 3.5rem;
+            font-family: var(--font-primary);
             font-size: 1.2rem;
             text-transform: uppercase;
-            letter-spacing: 0.1em;
-            border-radius: 0.4rem;
-            clip-path: polygon(0 0, 100% 0, 100% calc(100% - 1.2rem), calc(100% - 1.2rem) 100%, 0 100%);
-            transition: clip-path 0.3s ease, background 0.3s ease;
+            letter-spacing: 0.15em;
+            border: 1px solid var(--color-tan);
+            background: var(--color-tan);
+            color: var(--color-black);
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+            transition: color 0.4s;
+        }
+
+        .btn::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: var(--color-black);
+            transform: translateY(100%);
+            transition: transform 0.4s var(--ease-out-expo);
+        }
+
+        .btn:hover::before {
+            transform: translateY(0);
         }
 
         .btn:hover {
-            clip-path: polygon(1.2rem 0, 100% 0, 100% 100%, 0 100%, 0 1.2rem);
-            background: var(--color-cream);
+            color: var(--color-cream);
+        }
+
+        .btn span {
+            position: relative;
+            z-index: 1;
         }
 
         .btn-outline {
             background: transparent;
-            border: 1px solid var(--color-tan);
             color: var(--color-cream);
         }
 
-        .btn-outline:hover {
+        .btn-outline::before {
             background: var(--color-tan);
+        }
+
+        .btn-outline:hover {
             color: var(--color-black);
+        }
+
+        .btn-arrow {
+            width: 1.2rem;
+            height: 1.2rem;
+            position: relative;
+            z-index: 1;
+            transition: transform 0.3s;
+        }
+
+        .btn:hover .btn-arrow {
+            transform: translateX(5px);
         }
 
         /* Scroll Indicator */
@@ -330,250 +387,363 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            gap: 1rem;
+            gap: 1.5rem;
         }
 
-        .scroll-indicator span {
+        .scroll-text {
             font-size: 1rem;
             text-transform: uppercase;
-            letter-spacing: 0.2em;
+            letter-spacing: 0.3em;
             opacity: 0.5;
         }
 
         .scroll-line {
             width: 1px;
-            height: 6rem;
+            height: 8rem;
             background: linear-gradient(to bottom, var(--color-tan), transparent);
-            animation: scrollPulse 2s ease-in-out infinite;
+            position: relative;
+            overflow: hidden;
         }
 
-        @keyframes scrollPulse {
-            0%, 100% {
-                opacity: 0.3;
-                transform: scaleY(0.5);
-            }
-            50% {
-                opacity: 1;
-                transform: scaleY(1);
-            }
+        .scroll-line::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 30%;
+            background: var(--color-cream);
+            animation: scrollDown 2s ease-in-out infinite;
         }
 
-        /* Stats Section */
+        @keyframes scrollDown {
+            0% { transform: translateY(-100%); }
+            100% { transform: translateY(400%); }
+        }
+
+        /* ==================== MARQUEE ==================== */
+        .marquee {
+            padding: 3rem 0;
+            background: var(--color-tan);
+            overflow: hidden;
+        }
+
+        .marquee-track {
+            display: flex;
+            animation: marquee 30s linear infinite;
+        }
+
+        .marquee-content {
+            display: flex;
+            flex-shrink: 0;
+            gap: 4rem;
+            padding-right: 4rem;
+        }
+
+        .marquee-item {
+            font-family: var(--font-secondary);
+            font-size: 1.8rem;
+            font-weight: 500;
+            color: var(--color-black);
+            white-space: nowrap;
+            display: flex;
+            align-items: center;
+            gap: 4rem;
+        }
+
+        .marquee-item::after {
+            content: '◆';
+            font-size: 0.8rem;
+        }
+
+        @keyframes marquee {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+
+        /* ==================== STATS ==================== */
         .stats {
+            padding: 15rem 4rem;
             background: var(--color-brown);
-            padding: 8rem 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .stats-bg {
+            position: absolute;
+            inset: 0;
+            opacity: 0.1;
+        }
+
+        .stats-bg-line {
+            position: absolute;
+            background: var(--color-cream);
         }
 
         .stats-grid {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
             gap: 2rem;
-            max-width: 140rem;
+            max-width: 160rem;
             margin: 0 auto;
+            position: relative;
         }
 
-        @media(max-width: 900px) {
-            .stats-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
+        @media (max-width: 1024px) {
+            .stats-grid { grid-template-columns: repeat(2, 1fr); }
         }
 
-        @media(max-width: 600px) {
-            .stats-grid {
-                grid-template-columns: 1fr;
-            }
+        @media (max-width: 600px) {
+            .stats-grid { grid-template-columns: 1fr; }
+            .stats { padding: 10rem 2rem; }
         }
 
         .stat-item {
             text-align: center;
-            padding: 4rem 2rem;
+            padding: 5rem 3rem;
             border: 1px solid rgba(242, 237, 229, 0.1);
             position: relative;
+            overflow: hidden;
         }
 
         .stat-item::before {
             content: '';
             position: absolute;
-            top: -1px;
-            left: -1px;
-            right: -1px;
-            bottom: -1px;
-            background: linear-gradient(135deg, var(--color-tan) 0%, transparent 50%);
-            opacity: 0;
-            transition: opacity 0.4s ease;
-            pointer-events: none;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 0%;
+            background: rgba(242, 237, 229, 0.05);
+            transition: height 0.6s var(--ease-out-expo);
         }
 
         .stat-item:hover::before {
-            opacity: 0.1;
+            height: 100%;
         }
 
         .stat-number {
             font-family: var(--font-secondary);
-            font-size: 6rem;
+            font-size: 8rem;
             font-weight: 600;
             color: var(--color-tan);
             line-height: 1;
-            margin-bottom: 1rem;
+            margin-bottom: 2rem;
+            position: relative;
         }
 
         .stat-label {
-            font-size: 1.2rem;
+            font-size: 1.3rem;
             text-transform: uppercase;
             letter-spacing: 0.2em;
             opacity: 0.7;
         }
 
-        /* About Section */
+        /* ==================== ABOUT ==================== */
         .about {
-            padding: 15rem 2rem;
+            padding: 20rem 4rem;
             position: relative;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
         }
 
         .about-container {
-            max-width: 120rem;
+            max-width: 140rem;
             margin: 0 auto;
+            width: 100%;
         }
 
         .section-label {
-            display: flex;
+            display: inline-flex;
             align-items: center;
-            gap: 1.2rem;
+            gap: 1.5rem;
+            margin-bottom: 5rem;
+            overflow: hidden;
+        }
+
+        .section-label-dot {
+            width: 0.8rem;
+            height: 0.8rem;
+            background: var(--color-tan);
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 0.3; transform: scale(0.8); }
+            50% { opacity: 1; transform: scale(1); }
+        }
+
+        .section-label-text {
             font-size: 1.4rem;
             text-transform: uppercase;
-            letter-spacing: 0.1em;
-            margin-bottom: 4rem;
+            letter-spacing: 0.2em;
             color: var(--color-tan);
-        }
-
-        .section-label::before {
-            content: '';
-            width: 0.6rem;
-            height: 0.6rem;
-            background: var(--color-tan);
-            animation: blink 1.5s step-start infinite;
-        }
-
-        @keyframes blink {
-            0% { opacity: 0.2; }
-            50% { opacity: 1; }
-            100% { opacity: 0.2; }
         }
 
         .about-title {
             font-family: var(--font-secondary);
-            font-size: 6rem;
+            font-size: clamp(3.5rem, 6vw, 7rem);
             font-weight: 400;
-            line-height: 1.1;
-            margin-bottom: 6rem;
-            max-width: 90rem;
+            line-height: 1.15;
+            margin-bottom: 8rem;
+            max-width: 100rem;
         }
 
-        @media(max-width: 600px) {
-            .about-title {
-                font-size: 3.5rem;
-            }
+        .about-title .word {
+            display: inline-block;
+            overflow: hidden;
+            margin-right: 0.3em;
+        }
+
+        .about-title .word-inner {
+            display: inline-block;
         }
 
         .about-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 8rem;
+            gap: 10rem;
         }
 
-        @media(max-width: 900px) {
-            .about-grid {
-                grid-template-columns: 1fr;
-                gap: 4rem;
-            }
+        @media (max-width: 900px) {
+            .about-grid { grid-template-columns: 1fr; gap: 4rem; }
+            .about { padding: 10rem 2rem; }
         }
 
         .about-text {
             font-family: var(--font-secondary);
             font-size: 2rem;
-            line-height: 1.6;
-            opacity: 0.85;
+            line-height: 1.7;
+            opacity: 0.8;
         }
 
-        .about-text p + p {
-            margin-top: 2rem;
+        .about-visual {
+            position: relative;
+            height: 50rem;
         }
 
-        /* Values Section */
-        .values {
+        .about-shape {
+            position: absolute;
+            border: 1px solid var(--color-tan);
+            opacity: 0.3;
+        }
+
+        .about-shape-1 {
+            width: 30rem;
+            height: 30rem;
+            top: 0;
+            right: 0;
+            clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+        }
+
+        .about-shape-2 {
+            width: 20rem;
+            height: 20rem;
+            bottom: 5rem;
+            left: 5rem;
+            border-radius: 50%;
+        }
+
+        /* ==================== VALUES (Horizontal Scroll) ==================== */
+        .values-section {
+            position: relative;
             background: var(--color-cream);
             color: var(--color-black);
-            padding: 15rem 2rem;
         }
 
-        .values-container {
-            max-width: 140rem;
-            margin: 0 auto;
+        .values-sticky {
+            position: sticky;
+            top: 0;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            overflow: hidden;
         }
 
-        .values-header {
-            margin-bottom: 10rem;
+        .values-track {
+            display: flex;
+            gap: 5rem;
+            padding: 0 10rem;
+            will-change: transform;
+        }
+
+        .values-intro {
+            min-width: 50vw;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding-right: 10rem;
         }
 
         .values-title {
             font-family: var(--font-secondary);
-            font-size: 5rem;
+            font-size: clamp(3rem, 5vw, 6rem);
             font-weight: 400;
             line-height: 1.1;
-            max-width: 70rem;
+            margin-bottom: 3rem;
         }
 
-        @media(max-width: 600px) {
-            .values-title {
-                font-size: 3rem;
-            }
-        }
-
-        .values-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 4rem;
-        }
-
-        @media(max-width: 900px) {
-            .values-grid {
-                grid-template-columns: 1fr;
-            }
+        .values-subtitle {
+            font-family: var(--font-secondary);
+            font-size: 2rem;
+            opacity: 0.6;
+            max-width: 40rem;
         }
 
         .value-card {
-            padding: 4rem;
-            border: 1px solid rgba(29, 29, 23, 0.15);
+            min-width: 45rem;
+            height: 55rem;
+            background: var(--color-black);
+            color: var(--color-cream);
+            padding: 5rem;
+            display: flex;
+            flex-direction: column;
             position: relative;
-            transition: transform 0.4s ease, box-shadow 0.4s ease;
+            overflow: hidden;
         }
 
-        .value-card:hover {
-            transform: translateY(-0.5rem);
-            box-shadow: 0 2rem 4rem rgba(29, 29, 23, 0.1);
+        @media (max-width: 768px) {
+            .value-card { min-width: 85vw; height: 50rem; padding: 3rem; }
+            .values-track { padding: 0 2rem; gap: 2rem; }
+            .values-intro { min-width: 85vw; padding-right: 2rem; }
+        }
+
+        .value-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--color-tan), var(--color-red));
+        }
+
+        .value-number {
+            font-size: 1.2rem;
+            color: var(--color-tan);
+            letter-spacing: 0.3em;
+            margin-bottom: 3rem;
         }
 
         .value-icon {
-            width: 6rem;
-            height: 6rem;
-            background: var(--color-tan);
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            width: 8rem;
+            height: 8rem;
             margin-bottom: 3rem;
-            clip-path: polygon(0 0, 100% 0, 100% 70%, 70% 100%, 0 100%);
+            position: relative;
         }
 
         .value-icon svg {
-            width: 3rem;
-            height: 3rem;
-            fill: var(--color-black);
+            width: 100%;
+            height: 100%;
+            stroke: var(--color-tan);
+            stroke-width: 1;
+            fill: none;
         }
 
         .value-title {
             font-family: var(--font-secondary);
-            font-size: 2.4rem;
-            font-weight: 600;
+            font-size: 3rem;
+            font-weight: 500;
             margin-bottom: 2rem;
         }
 
@@ -581,71 +751,62 @@
             font-family: var(--font-secondary);
             font-size: 1.6rem;
             line-height: 1.7;
-            opacity: 0.75;
+            opacity: 0.7;
+            margin-top: auto;
         }
 
-        /* Portfolio Section */
+        /* ==================== PORTFOLIO ==================== */
         .portfolio {
-            padding: 15rem 2rem;
+            padding: 20rem 4rem;
             background: var(--color-black);
-        }
-
-        .portfolio-container {
-            max-width: 140rem;
-            margin: 0 auto;
+            position: relative;
         }
 
         .portfolio-header {
             display: flex;
             justify-content: space-between;
             align-items: flex-end;
-            margin-bottom: 8rem;
+            margin-bottom: 10rem;
+            max-width: 160rem;
+            margin-left: auto;
+            margin-right: auto;
         }
 
-        @media(max-width: 900px) {
-            .portfolio-header {
-                flex-direction: column;
-                align-items: flex-start;
-                gap: 3rem;
-            }
+        @media (max-width: 900px) {
+            .portfolio-header { flex-direction: column; align-items: flex-start; gap: 4rem; }
+            .portfolio { padding: 10rem 2rem; }
         }
 
         .portfolio-title {
             font-family: var(--font-secondary);
-            font-size: 5rem;
+            font-size: clamp(3rem, 5vw, 6rem);
             font-weight: 400;
-            line-height: 1.1;
-        }
-
-        @media(max-width: 600px) {
-            .portfolio-title {
-                font-size: 3rem;
-            }
         }
 
         .portfolio-grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
             gap: 3rem;
+            max-width: 160rem;
+            margin: 0 auto;
         }
 
-        @media(max-width: 900px) {
-            .portfolio-grid {
-                grid-template-columns: 1fr;
-            }
+        @media (max-width: 900px) {
+            .portfolio-grid { grid-template-columns: 1fr; }
         }
 
         .portfolio-item {
-            background: rgba(242, 237, 229, 0.03);
-            border: 1px solid rgba(242, 237, 229, 0.1);
-            padding: 4rem;
+            background: rgba(242, 237, 229, 0.02);
+            border: 1px solid rgba(242, 237, 229, 0.08);
+            padding: 5rem;
             position: relative;
             overflow: hidden;
-            transition: background 0.4s ease, border-color 0.4s ease;
+            cursor: pointer;
+            transition: background 0.5s, border-color 0.5s;
         }
 
         .portfolio-item:hover {
-            background: rgba(242, 237, 229, 0.06);
+            background: rgba(242, 237, 229, 0.05);
             border-color: var(--color-tan);
         }
 
@@ -654,176 +815,194 @@
             position: absolute;
             top: 0;
             left: 0;
-            width: 100%;
+            width: 0%;
             height: 3px;
             background: linear-gradient(90deg, var(--color-tan), var(--color-red));
-            transform: scaleX(0);
-            transform-origin: left;
-            transition: transform 0.4s ease;
+            transition: width 0.6s var(--ease-out-expo);
         }
 
         .portfolio-item:hover::before {
-            transform: scaleX(1);
+            width: 100%;
+        }
+
+        .portfolio-item-bg {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 40%;
+            height: 100%;
+            opacity: 0;
+            transition: opacity 0.5s;
+            background: linear-gradient(135deg, transparent 0%, rgba(159, 118, 94, 0.1) 100%);
+        }
+
+        .portfolio-item:hover .portfolio-item-bg {
+            opacity: 1;
         }
 
         .portfolio-category {
             font-size: 1.1rem;
             text-transform: uppercase;
-            letter-spacing: 0.2em;
+            letter-spacing: 0.25em;
             color: var(--color-tan);
             margin-bottom: 2rem;
         }
 
         .portfolio-name {
             font-family: var(--font-secondary);
-            font-size: 2.8rem;
-            font-weight: 600;
+            font-size: 3.2rem;
+            font-weight: 500;
             margin-bottom: 2rem;
+            transition: transform 0.4s;
+        }
+
+        .portfolio-item:hover .portfolio-name {
+            transform: translateX(1rem);
         }
 
         .portfolio-desc {
             font-family: var(--font-secondary);
             font-size: 1.6rem;
-            line-height: 1.6;
-            opacity: 0.7;
-            margin-bottom: 3rem;
+            line-height: 1.7;
+            opacity: 0.6;
+            margin-bottom: 4rem;
+            max-width: 50rem;
         }
 
         .portfolio-link {
             display: inline-flex;
             align-items: center;
-            gap: 0.8rem;
+            gap: 1rem;
             font-size: 1.2rem;
             text-transform: uppercase;
-            letter-spacing: 0.1em;
+            letter-spacing: 0.15em;
             color: var(--color-tan);
-            transition: gap 0.3s ease;
-        }
-
-        .portfolio-link:hover {
-            gap: 1.5rem;
         }
 
         .portfolio-link svg {
-            width: 1.2rem;
-            height: 1.2rem;
-            fill: currentColor;
+            width: 1.4rem;
+            height: 1.4rem;
+            transition: transform 0.3s;
         }
 
-        /* Quote Section */
-        .quote {
+        .portfolio-item:hover .portfolio-link svg {
+            transform: translate(5px, -5px);
+        }
+
+        /* ==================== QUOTE ==================== */
+        .quote-section {
+            min-height: 100vh;
             background: var(--color-tan);
             color: var(--color-black);
-            padding: 12rem 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             position: relative;
             overflow: hidden;
+            padding: 10rem 4rem;
         }
 
-        .quote::before {
-            content: '';
+        .quote-pattern {
             position: absolute;
             inset: 0;
-            background: repeating-linear-gradient(
-                to bottom,
-                transparent,
-                transparent 0.4rem,
-                var(--color-tan) 0.4rem,
-                var(--color-tan) 15rem
-            ),
-            repeating-linear-gradient(
-                to right,
-                #8a6550,
-                #8a6550 0.4rem,
-                var(--color-tan) 0.4rem,
-                var(--color-tan) 15rem
-            );
-            opacity: 0.3;
+            background-image:
+                linear-gradient(rgba(71, 33, 15, 0.1) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(71, 33, 15, 0.1) 1px, transparent 1px);
+            background-size: 8rem 8rem;
         }
 
         .quote-container {
-            max-width: 100rem;
-            margin: 0 auto;
+            max-width: 110rem;
             position: relative;
             z-index: 1;
         }
 
         .quote-mark {
             font-family: var(--font-secondary);
-            font-size: 12rem;
+            font-size: 20rem;
             line-height: 1;
-            opacity: 0.2;
+            opacity: 0.15;
             position: absolute;
-            top: -4rem;
-            left: -2rem;
+            top: -8rem;
+            left: -4rem;
         }
 
         .quote-text {
             font-family: var(--font-secondary);
-            font-size: 4rem;
+            font-size: clamp(2.5rem, 5vw, 5rem);
             font-weight: 400;
             line-height: 1.3;
-            margin-bottom: 4rem;
+            margin-bottom: 5rem;
         }
 
-        @media(max-width: 600px) {
-            .quote-text {
-                font-size: 2.5rem;
-            }
+        .quote-text .word {
+            display: inline-block;
+            overflow: hidden;
+            margin-right: 0.25em;
+        }
+
+        .quote-text .word-inner {
+            display: inline-block;
         }
 
         .quote-author {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        .quote-author-line {
+            width: 5rem;
+            height: 1px;
+            background: var(--color-black);
+        }
+
+        .quote-author-name {
             font-size: 1.4rem;
             text-transform: uppercase;
             letter-spacing: 0.2em;
         }
 
-        /* Contact Section */
+        /* ==================== CONTACT ==================== */
         .contact {
-            padding: 15rem 2rem;
+            padding: 20rem 4rem;
             background: var(--color-brown);
+            position: relative;
         }
 
         .contact-container {
-            max-width: 120rem;
+            max-width: 140rem;
             margin: 0 auto;
         }
 
         .contact-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 8rem;
+            gap: 10rem;
         }
 
-        @media(max-width: 900px) {
-            .contact-grid {
-                grid-template-columns: 1fr;
-                gap: 6rem;
-            }
+        @media (max-width: 900px) {
+            .contact-grid { grid-template-columns: 1fr; gap: 6rem; }
+            .contact { padding: 10rem 2rem; }
         }
 
         .contact-title {
             font-family: var(--font-secondary);
-            font-size: 5rem;
+            font-size: clamp(3rem, 5vw, 5.5rem);
             font-weight: 400;
             line-height: 1.1;
             margin-bottom: 3rem;
         }
 
-        @media(max-width: 600px) {
-            .contact-title {
-                font-size: 3rem;
-            }
-        }
-
         .contact-text {
             font-family: var(--font-secondary);
             font-size: 1.8rem;
-            line-height: 1.6;
-            opacity: 0.8;
-            margin-bottom: 4rem;
+            line-height: 1.7;
+            opacity: 0.7;
+            margin-bottom: 5rem;
         }
 
-        .contact-info {
+        .contact-links {
             display: flex;
             flex-direction: column;
             gap: 2rem;
@@ -834,40 +1013,42 @@
             font-size: 1.8rem;
             display: flex;
             align-items: center;
-            gap: 1rem;
-            transition: color 0.3s ease;
+            gap: 1.5rem;
+            transition: color 0.3s, transform 0.3s;
         }
 
         .contact-link:hover {
             color: var(--color-tan);
+            transform: translateX(1rem);
         }
 
         .contact-link svg {
-            width: 2rem;
-            height: 2rem;
+            width: 2.2rem;
+            height: 2.2rem;
             fill: var(--color-tan);
         }
 
         .contact-form {
             display: flex;
             flex-direction: column;
-            gap: 2rem;
+            gap: 3rem;
         }
 
         .form-group {
             position: relative;
+            overflow: hidden;
         }
 
         .form-input {
             width: 100%;
-            padding: 1.5rem 0;
+            padding: 2rem 0;
             font-family: var(--font-secondary);
-            font-size: 1.6rem;
+            font-size: 1.8rem;
             background: transparent;
             border: none;
-            border-bottom: 1px solid rgba(242, 237, 229, 0.3);
+            border-bottom: 1px solid rgba(242, 237, 229, 0.2);
             color: var(--color-cream);
-            transition: border-color 0.3s ease;
+            transition: border-color 0.4s;
         }
 
         .form-input:focus {
@@ -876,88 +1057,98 @@
         }
 
         .form-input::placeholder {
-            color: rgba(242, 237, 229, 0.5);
+            color: rgba(242, 237, 229, 0.4);
         }
 
-        .form-textarea {
-            min-height: 12rem;
-            resize: vertical;
+        .form-line {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 1px;
+            background: var(--color-tan);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.4s var(--ease-out-expo);
         }
 
-        /* Footer */
+        .form-input:focus + .form-line {
+            transform: scaleX(1);
+        }
+
+        /* ==================== FOOTER ==================== */
         .footer {
             background: var(--color-black);
-            padding: 8rem 2rem 4rem;
+            padding: 10rem 4rem 4rem;
             border-top: 1px solid rgba(242, 237, 229, 0.1);
         }
 
         .footer-container {
-            max-width: 140rem;
+            max-width: 160rem;
             margin: 0 auto;
         }
 
-        .footer-grid {
+        .footer-main {
             display: grid;
-            grid-template-columns: 2fr 1fr 1fr 1fr;
-            gap: 4rem;
-            margin-bottom: 8rem;
+            grid-template-columns: 2fr repeat(3, 1fr);
+            gap: 6rem;
+            padding-bottom: 8rem;
+            border-bottom: 1px solid rgba(242, 237, 229, 0.1);
         }
 
-        @media(max-width: 900px) {
-            .footer-grid {
-                grid-template-columns: 1fr 1fr;
-            }
+        @media (max-width: 900px) {
+            .footer-main { grid-template-columns: 1fr 1fr; }
         }
 
-        @media(max-width: 600px) {
-            .footer-grid {
-                grid-template-columns: 1fr;
-            }
+        @media (max-width: 600px) {
+            .footer-main { grid-template-columns: 1fr; }
+            .footer { padding: 6rem 2rem 2rem; }
         }
 
         .footer-brand {
-            max-width: 35rem;
+            max-width: 40rem;
         }
 
         .footer-logo {
             font-family: var(--font-secondary);
-            font-size: 2.4rem;
+            font-size: 2.8rem;
             font-weight: 600;
-            letter-spacing: 0.15em;
-            margin-bottom: 2rem;
+            letter-spacing: 0.2em;
+            margin-bottom: 2.5rem;
         }
 
         .footer-desc {
             font-family: var(--font-secondary);
-            font-size: 1.4rem;
+            font-size: 1.5rem;
             line-height: 1.7;
-            opacity: 0.6;
+            opacity: 0.5;
         }
 
         .footer-title {
             font-size: 1.2rem;
             text-transform: uppercase;
-            letter-spacing: 0.2em;
-            margin-bottom: 2rem;
+            letter-spacing: 0.25em;
             color: var(--color-tan);
+            margin-bottom: 2.5rem;
         }
 
         .footer-links {
             display: flex;
             flex-direction: column;
-            gap: 1.2rem;
+            gap: 1.5rem;
         }
 
         .footer-link {
             font-family: var(--font-secondary);
-            font-size: 1.4rem;
-            opacity: 0.7;
-            transition: opacity 0.3s ease, color 0.3s ease;
+            font-size: 1.5rem;
+            opacity: 0.6;
+            transition: opacity 0.3s, color 0.3s, transform 0.3s;
         }
 
         .footer-link:hover {
             opacity: 1;
             color: var(--color-tan);
+            transform: translateX(0.5rem);
         }
 
         .footer-bottom {
@@ -965,176 +1156,250 @@
             justify-content: space-between;
             align-items: center;
             padding-top: 4rem;
-            border-top: 1px solid rgba(242, 237, 229, 0.1);
         }
 
-        @media(max-width: 600px) {
-            .footer-bottom {
-                flex-direction: column;
-                gap: 2rem;
-                text-align: center;
-            }
+        @media (max-width: 600px) {
+            .footer-bottom { flex-direction: column; gap: 2rem; }
         }
 
         .footer-copy {
             font-size: 1.2rem;
-            opacity: 0.5;
+            opacity: 0.4;
         }
 
         .footer-social {
             display: flex;
-            gap: 2rem;
+            gap: 1.5rem;
         }
 
         .social-link {
-            width: 4rem;
-            height: 4rem;
-            border: 1px solid rgba(242, 237, 229, 0.2);
+            width: 4.5rem;
+            height: 4.5rem;
+            border: 1px solid rgba(242, 237, 229, 0.15);
             display: flex;
             align-items: center;
             justify-content: center;
-            transition: border-color 0.3s ease, background 0.3s ease;
+            transition: border-color 0.3s, background 0.3s, transform 0.3s;
         }
 
         .social-link:hover {
             border-color: var(--color-tan);
             background: var(--color-tan);
+            transform: translateY(-3px);
         }
 
         .social-link svg {
-            width: 1.6rem;
-            height: 1.6rem;
+            width: 1.8rem;
+            height: 1.8rem;
             fill: var(--color-cream);
-            transition: fill 0.3s ease;
+            transition: fill 0.3s;
         }
 
         .social-link:hover svg {
             fill: var(--color-black);
         }
 
-        /* Animations */
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(2rem);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+        /* ==================== MAGNETIC ELEMENTS ==================== */
+        .magnetic {
+            display: inline-block;
         }
 
-        .animate {
-            animation: fadeIn 0.8s var(--ease-out-cubic) forwards;
-        }
-
-        /* Utility */
-        .visually-hidden {
-            position: absolute;
-            width: 1px;
-            height: 1px;
+        /* ==================== REVEAL ANIMATIONS ==================== */
+        .reveal-text {
             overflow: hidden;
-            clip: rect(0, 0, 0, 0);
+        }
+
+        .reveal-text .char {
+            display: inline-block;
+            transform: translateY(100%);
+        }
+
+        .split-lines .line {
+            overflow: hidden;
+        }
+
+        .split-lines .line-inner {
+            transform: translateY(100%);
         }
     </style>
 </head>
 <body>
+    <!-- Loader -->
+    <div class="loader">
+        <div class="loader-logo">PANGOLA</div>
+        <div class="loader-progress">
+            <div class="loader-progress-bar"></div>
+        </div>
+        <div class="loader-text">Carregant experiència</div>
+    </div>
+
+    <!-- Custom Cursor -->
+    <div class="cursor"></div>
+    <div class="cursor-dot"></div>
+
     <!-- Header -->
     <header class="header">
-        <a href="#" class="logo">PANGOLA</a>
+        <a href="#" class="logo magnetic">PANGOLA</a>
         <nav class="nav">
-            <a href="#about" class="nav-link">Sobre Nosaltres</a>
-            <a href="#values" class="nav-link">Valors</a>
-            <a href="#portfolio" class="nav-link">Portfolio</a>
-            <a href="#contact" class="nav-link">Contacte</a>
+            <a href="#about" class="nav-link magnetic" data-text="Nosaltres"><span>Nosaltres</span></a>
+            <a href="#values" class="nav-link magnetic" data-text="Valors"><span>Valors</span></a>
+            <a href="#portfolio" class="nav-link magnetic" data-text="Portfolio"><span>Portfolio</span></a>
+            <a href="#contact" class="nav-link magnetic" data-text="Contacte"><span>Contacte</span></a>
         </nav>
     </header>
 
-    <!-- Hero Section -->
+    <!-- Hero -->
     <section class="hero">
+        <div class="hero-bg"></div>
+        <div class="hero-gradient"></div>
         <div class="hero-content">
-            <p class="hero-subtitle">Climate Tech & Environmental Solutions</p>
-            <h1 class="hero-title">Invertim en el <span>futur</span> del planeta</h1>
+            <div class="hero-label">
+                <div class="hero-label-line"></div>
+                <span class="hero-label-text">Climate Tech & Environmental Solutions</span>
+                <div class="hero-label-line"></div>
+            </div>
+            <h1 class="hero-title">
+                <span class="line"><span class="line-inner">Invertim en el</span></span>
+                <span class="line"><span class="line-inner"><span class="highlight">futur</span> del planeta</span></span>
+            </h1>
             <p class="hero-text">Pangola és una holding empresarial que lidera la inversió en empreses de climate tech i neteja ambiental, impulsant solucions innovadores per a un món més sostenible.</p>
-            <div style="display: flex; gap: 2rem; justify-content: center; flex-wrap: wrap;">
-                <a href="#portfolio" class="btn">Descobreix el Portfolio</a>
-                <a href="#contact" class="btn btn-outline">Contacta'ns</a>
+            <div class="hero-cta">
+                <a href="#portfolio" class="btn magnetic">
+                    <span>Descobreix el Portfolio</span>
+                    <svg class="btn-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M5 12h14M12 5l7 7-7 7"/>
+                    </svg>
+                </a>
+                <a href="#contact" class="btn btn-outline magnetic">
+                    <span>Contacta'ns</span>
+                </a>
             </div>
         </div>
         <div class="scroll-indicator">
-            <span>Scroll</span>
+            <span class="scroll-text">Scroll</span>
             <div class="scroll-line"></div>
         </div>
     </section>
 
-    <!-- Stats Section -->
+    <!-- Marquee -->
+    <div class="marquee">
+        <div class="marquee-track">
+            <div class="marquee-content">
+                <span class="marquee-item">Energia Renovable</span>
+                <span class="marquee-item">Economia Circular</span>
+                <span class="marquee-item">Captura de Carboni</span>
+                <span class="marquee-item">Neteja Ambiental</span>
+                <span class="marquee-item">Mobilitat Sostenible</span>
+                <span class="marquee-item">AgriTech</span>
+                <span class="marquee-item">BlueTech</span>
+                <span class="marquee-item">GreenTech</span>
+            </div>
+            <div class="marquee-content">
+                <span class="marquee-item">Energia Renovable</span>
+                <span class="marquee-item">Economia Circular</span>
+                <span class="marquee-item">Captura de Carboni</span>
+                <span class="marquee-item">Neteja Ambiental</span>
+                <span class="marquee-item">Mobilitat Sostenible</span>
+                <span class="marquee-item">AgriTech</span>
+                <span class="marquee-item">BlueTech</span>
+                <span class="marquee-item">GreenTech</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Stats -->
     <section class="stats">
+        <div class="stats-bg">
+            <div class="stats-bg-line" style="width: 1px; height: 100%; left: 25%;"></div>
+            <div class="stats-bg-line" style="width: 1px; height: 100%; left: 50%;"></div>
+            <div class="stats-bg-line" style="width: 1px; height: 100%; left: 75%;"></div>
+        </div>
         <div class="stats-grid">
             <div class="stat-item">
-                <div class="stat-number">12</div>
+                <div class="stat-number" data-value="12">0</div>
                 <div class="stat-label">Empreses al Portfolio</div>
             </div>
             <div class="stat-item">
-                <div class="stat-number">€85M</div>
+                <div class="stat-number" data-value="85" data-prefix="€" data-suffix="M">€0M</div>
                 <div class="stat-label">Capital Invertit</div>
             </div>
             <div class="stat-item">
-                <div class="stat-number">2.4M</div>
+                <div class="stat-number" data-value="2.4" data-suffix="M">0M</div>
                 <div class="stat-label">Tones CO₂ Evitades</div>
             </div>
             <div class="stat-item">
-                <div class="stat-number">8</div>
+                <div class="stat-number" data-value="8">0</div>
                 <div class="stat-label">Països d'Operació</div>
             </div>
         </div>
     </section>
 
-    <!-- About Section -->
+    <!-- About -->
     <section class="about" id="about">
         <div class="about-container">
-            <div class="section-label">Qui Som</div>
-            <h2 class="about-title">Construïm el futur sostenible a través de la inversió estratègica en tecnologia climàtica</h2>
+            <div class="section-label">
+                <div class="section-label-dot"></div>
+                <span class="section-label-text">Qui Som</span>
+            </div>
+            <h2 class="about-title">
+                Construïm el futur sostenible a través de la inversió estratègica en tecnologia climàtica i solucions ambientals innovadores.
+            </h2>
             <div class="about-grid">
                 <div class="about-text">
-                    <p>Pangola neix de la convicció que el canvi climàtic és el repte més urgent del nostre temps, i que les solucions tecnològiques són clau per afrontar-lo. Som una holding empresarial especialitzada en identificar, invertir i fer créixer empreses que lideren la transició cap a una economia sostenible.</p>
+                    <p>Pangola neix de la convicció que el canvi climàtic és el repte més urgent del nostre temps, i que les solucions tecnològiques són clau per afrontar-lo.</p>
+                    <br>
+                    <p>Som una holding empresarial especialitzada en identificar, invertir i fer créixer empreses que lideren la transició cap a una economia sostenible.</p>
                 </div>
                 <div class="about-text">
-                    <p>El nostre equip combina experiència en capital risc, tecnologia i sostenibilitat per oferir no només finançament, sinó també suport estratègic i operatiu a les nostres empreses participades. Creiem en el poder transformador de la innovació per crear valor econòmic i impacte ambiental positiu.</p>
+                    <p>El nostre equip combina experiència en capital risc, tecnologia i sostenibilitat per oferir no només finançament, sinó també suport estratègic i operatiu.</p>
+                    <br>
+                    <p>Creiem en el poder transformador de la innovació per crear valor econòmic i impacte ambiental positiu de manera simultània.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Values Section -->
-    <section class="values" id="values">
-        <div class="values-container">
-            <div class="values-header">
-                <div class="section-label" style="color: var(--color-brown);">Els Nostres Valors</div>
-                <h2 class="values-title">Principis que guien cada decisió d'inversió</h2>
-            </div>
-            <div class="values-grid">
+    <!-- Values (Horizontal Scroll) -->
+    <section class="values-section" id="values">
+        <div class="values-sticky">
+            <div class="values-track">
+                <div class="values-intro">
+                    <div class="section-label" style="--color-tan: #47210f;">
+                        <div class="section-label-dot" style="background: var(--color-brown);"></div>
+                        <span class="section-label-text" style="color: var(--color-brown);">Els Nostres Valors</span>
+                    </div>
+                    <h2 class="values-title">Principis que guien cada decisió</h2>
+                    <p class="values-subtitle">Tres pilars fonamentals que defineixen la nostra estratègia d'inversió i el nostre compromís amb el planeta.</p>
+                </div>
                 <div class="value-card">
+                    <span class="value-number">001</span>
                     <div class="value-icon">
-                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                        <svg viewBox="0 0 100 100">
+                            <circle cx="50" cy="50" r="40"/>
+                            <path d="M30 50 L45 65 L70 35"/>
                         </svg>
                     </div>
                     <h3 class="value-title">Impacte Mesurable</h3>
-                    <p class="value-text">Cada inversió ha de demostrar un impacte ambiental quantificable. Utilitzem mètriques rigoroses per avaluar la contribució real de cada empresa a la sostenibilitat.</p>
+                    <p class="value-text">Cada inversió ha de demostrar un impacte ambiental quantificable. Utilitzem mètriques rigoroses per avaluar la contribució real de cada empresa a la sostenibilitat global.</p>
                 </div>
                 <div class="value-card">
+                    <span class="value-number">002</span>
                     <div class="value-icon">
-                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M9.4 16.6L4.8 12l4.6-4.6L8 6l-6 6 6 6 1.4-1.4zm5.2 0l4.6-4.6-4.6-4.6L16 6l6 6-6 6-1.4-1.4z"/>
+                        <svg viewBox="0 0 100 100">
+                            <rect x="20" y="20" width="60" height="60" rx="5"/>
+                            <path d="M35 50 L50 35 L65 50 L50 65 Z"/>
                         </svg>
                     </div>
                     <h3 class="value-title">Innovació Tecnològica</h3>
-                    <p class="value-text">Busquem empreses amb tecnologies disruptives que puguin escalar solucions climàtiques. La innovació és el motor del canvi que necessitem.</p>
+                    <p class="value-text">Busquem empreses amb tecnologies disruptives que puguin escalar solucions climàtiques. La innovació és el motor del canvi que necessitem per transformar indústries.</p>
                 </div>
                 <div class="value-card">
+                    <span class="value-number">003</span>
                     <div class="value-icon">
-                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/>
+                        <svg viewBox="0 0 100 100">
+                            <circle cx="35" cy="40" r="15"/>
+                            <circle cx="65" cy="40" r="15"/>
+                            <circle cx="50" cy="65" r="15"/>
                         </svg>
                     </div>
                     <h3 class="value-title">Col·laboració</h3>
@@ -1144,117 +1409,139 @@
         </div>
     </section>
 
-    <!-- Portfolio Section -->
+    <!-- Portfolio -->
     <section class="portfolio" id="portfolio">
-        <div class="portfolio-container">
-            <div class="portfolio-header">
-                <div>
-                    <div class="section-label">El Nostre Portfolio</div>
-                    <h2 class="portfolio-title">Empreses que lideren el canvi</h2>
+        <div class="portfolio-header">
+            <div>
+                <div class="section-label">
+                    <div class="section-label-dot"></div>
+                    <span class="section-label-text">El Nostre Portfolio</span>
                 </div>
-                <a href="#contact" class="btn">Presenta el teu projecte</a>
+                <h2 class="portfolio-title">Empreses que lideren el canvi</h2>
             </div>
-            <div class="portfolio-grid">
-                <article class="portfolio-item">
-                    <div class="portfolio-category">Energia Renovable</div>
-                    <h3 class="portfolio-name">SolarGrid Tech</h3>
-                    <p class="portfolio-desc">Plataforma intel·ligent de gestió d'energia solar distribuïda per a comunitats i empreses, optimitzant la producció i el consum en temps real.</p>
-                    <a href="#" class="portfolio-link">
-                        Més informació
-                        <svg viewBox="0 0 7 7" xmlns="http://www.w3.org/2000/svg">
-                            <path fill-rule="evenodd" d="M1.2 7L0.5 6.3L5.3 1.5H1V0.5H7V6.5H6V2.2L1.2 7Z"/>
-                        </svg>
-                    </a>
-                </article>
-                <article class="portfolio-item">
-                    <div class="portfolio-category">Economia Circular</div>
-                    <h3 class="portfolio-name">ReLoop Materials</h3>
-                    <p class="portfolio-desc">Tecnologia de reciclatge avançat que transforma residus plàstics en matèries primeres d'alta qualitat per a la indústria.</p>
-                    <a href="#" class="portfolio-link">
-                        Més informació
-                        <svg viewBox="0 0 7 7" xmlns="http://www.w3.org/2000/svg">
-                            <path fill-rule="evenodd" d="M1.2 7L0.5 6.3L5.3 1.5H1V0.5H7V6.5H6V2.2L1.2 7Z"/>
-                        </svg>
-                    </a>
-                </article>
-                <article class="portfolio-item">
-                    <div class="portfolio-category">Neteja Ambiental</div>
-                    <h3 class="portfolio-name">AquaPure Systems</h3>
-                    <p class="portfolio-desc">Sistemes de purificació d'aigua mitjançant tecnologia de membrana avançada, eliminant microplàstics i contaminants emergents.</p>
-                    <a href="#" class="portfolio-link">
-                        Més informació
-                        <svg viewBox="0 0 7 7" xmlns="http://www.w3.org/2000/svg">
-                            <path fill-rule="evenodd" d="M1.2 7L0.5 6.3L5.3 1.5H1V0.5H7V6.5H6V2.2L1.2 7Z"/>
-                        </svg>
-                    </a>
-                </article>
-                <article class="portfolio-item">
-                    <div class="portfolio-category">Captura de Carboni</div>
-                    <h3 class="portfolio-name">CarbonSink AI</h3>
-                    <p class="portfolio-desc">Intel·ligència artificial per optimitzar projectes de reforestació i segrestar carboni de manera eficient i verificable.</p>
-                    <a href="#" class="portfolio-link">
-                        Més informació
-                        <svg viewBox="0 0 7 7" xmlns="http://www.w3.org/2000/svg">
-                            <path fill-rule="evenodd" d="M1.2 7L0.5 6.3L5.3 1.5H1V0.5H7V6.5H6V2.2L1.2 7Z"/>
-                        </svg>
-                    </a>
-                </article>
-            </div>
+            <a href="#contact" class="btn magnetic">
+                <span>Presenta el teu projecte</span>
+                <svg class="btn-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M5 12h14M12 5l7 7-7 7"/>
+                </svg>
+            </a>
+        </div>
+        <div class="portfolio-grid">
+            <article class="portfolio-item magnetic">
+                <div class="portfolio-item-bg"></div>
+                <div class="portfolio-category">Energia Renovable</div>
+                <h3 class="portfolio-name">SolarGrid Tech</h3>
+                <p class="portfolio-desc">Plataforma intel·ligent de gestió d'energia solar distribuïda per a comunitats i empreses, optimitzant la producció i el consum en temps real amb IA.</p>
+                <a href="#" class="portfolio-link">
+                    Més informació
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M7 17L17 7M17 7H7M17 7V17"/>
+                    </svg>
+                </a>
+            </article>
+            <article class="portfolio-item magnetic">
+                <div class="portfolio-item-bg"></div>
+                <div class="portfolio-category">Economia Circular</div>
+                <h3 class="portfolio-name">ReLoop Materials</h3>
+                <p class="portfolio-desc">Tecnologia de reciclatge avançat que transforma residus plàstics en matèries primeres d'alta qualitat per a la indústria manufacturera.</p>
+                <a href="#" class="portfolio-link">
+                    Més informació
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M7 17L17 7M17 7H7M17 7V17"/>
+                    </svg>
+                </a>
+            </article>
+            <article class="portfolio-item magnetic">
+                <div class="portfolio-item-bg"></div>
+                <div class="portfolio-category">Neteja Ambiental</div>
+                <h3 class="portfolio-name">AquaPure Systems</h3>
+                <p class="portfolio-desc">Sistemes de purificació d'aigua mitjançant tecnologia de membrana avançada, eliminant microplàstics i contaminants emergents de l'aigua.</p>
+                <a href="#" class="portfolio-link">
+                    Més informació
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M7 17L17 7M17 7H7M17 7V17"/>
+                    </svg>
+                </a>
+            </article>
+            <article class="portfolio-item magnetic">
+                <div class="portfolio-item-bg"></div>
+                <div class="portfolio-category">Captura de Carboni</div>
+                <h3 class="portfolio-name">CarbonSink AI</h3>
+                <p class="portfolio-desc">Intel·ligència artificial per optimitzar projectes de reforestació i segrestar carboni de manera eficient, verificable i escalable globalment.</p>
+                <a href="#" class="portfolio-link">
+                    Més informació
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M7 17L17 7M17 7H7M17 7V17"/>
+                    </svg>
+                </a>
+            </article>
         </div>
     </section>
 
-    <!-- Quote Section -->
-    <section class="quote">
+    <!-- Quote -->
+    <section class="quote-section">
+        <div class="quote-pattern"></div>
         <div class="quote-container">
             <div class="quote-mark">"</div>
-            <blockquote class="quote-text">El climate tech no és només una oportunitat d'inversió, és la nostra responsabilitat generacional. A Pangola, cada euro invertit és un pas cap a un futur habitable.</blockquote>
-            <p class="quote-author">Marta Solé, CEO de Pangola</p>
+            <blockquote class="quote-text">
+                El climate tech no és només una oportunitat d'inversió, és la nostra responsabilitat generacional. A Pangola, cada euro invertit és un pas cap a un futur habitable.
+            </blockquote>
+            <div class="quote-author">
+                <div class="quote-author-line"></div>
+                <span class="quote-author-name">Marta Solé, CEO de Pangola</span>
+            </div>
         </div>
     </section>
 
-    <!-- Contact Section -->
+    <!-- Contact -->
     <section class="contact" id="contact">
         <div class="contact-container">
             <div class="contact-grid">
-                <div class="contact-info-wrapper">
-                    <div class="section-label">Contacte</div>
+                <div>
+                    <div class="section-label">
+                        <div class="section-label-dot"></div>
+                        <span class="section-label-text">Contacte</span>
+                    </div>
                     <h2 class="contact-title">Parlem del futur</h2>
                     <p class="contact-text">Ja siguis un emprenedor amb una idea revolucionària o un inversor que busca impacte, estem aquí per escoltar-te.</p>
-                    <div class="contact-info">
-                        <a href="mailto:info@pangola.cat" class="contact-link">
-                            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
-                            </svg>
+                    <div class="contact-links">
+                        <a href="mailto:info@pangola.cat" class="contact-link magnetic">
+                            <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
                             info@pangola.cat
                         </a>
-                        <a href="tel:+34932000000" class="contact-link">
-                            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
-                            </svg>
+                        <a href="tel:+34932000000" class="contact-link magnetic">
+                            <svg viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
                             +34 93 200 00 00
                         </a>
-                        <a href="#" class="contact-link">
-                            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
-                            </svg>
+                        <a href="#" class="contact-link magnetic">
+                            <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
                             Barcelona, Catalunya
                         </a>
                     </div>
                 </div>
-                <form class="contact-form" action="#" method="POST">
+                <form class="contact-form">
                     <div class="form-group">
-                        <input type="text" name="name" placeholder="Nom complet" required class="form-input">
+                        <input type="text" class="form-input" placeholder="Nom complet" required>
+                        <div class="form-line"></div>
                     </div>
                     <div class="form-group">
-                        <input type="email" name="email" placeholder="Correu electrònic" required class="form-input">
+                        <input type="email" class="form-input" placeholder="Correu electrònic" required>
+                        <div class="form-line"></div>
                     </div>
                     <div class="form-group">
-                        <input type="text" name="company" placeholder="Empresa (opcional)" class="form-input">
+                        <input type="text" class="form-input" placeholder="Empresa (opcional)">
+                        <div class="form-line"></div>
                     </div>
                     <div class="form-group">
-                        <textarea name="message" placeholder="El teu missatge" required class="form-input form-textarea"></textarea>
+                        <textarea class="form-input" placeholder="El teu missatge" rows="4" required></textarea>
+                        <div class="form-line"></div>
                     </div>
-                    <button type="submit" class="btn">Enviar missatge</button>
+                    <button type="submit" class="btn magnetic">
+                        <span>Enviar missatge</span>
+                        <svg class="btn-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M5 12h14M12 5l7 7-7 7"/>
+                        </svg>
+                    </button>
                 </form>
             </div>
         </div>
@@ -1263,12 +1550,12 @@
     <!-- Footer -->
     <footer class="footer">
         <div class="footer-container">
-            <div class="footer-grid">
+            <div class="footer-main">
                 <div class="footer-brand">
                     <div class="footer-logo">PANGOLA</div>
                     <p class="footer-desc">Holding empresarial especialitzada en climate tech i neteja ambiental. Invertim en un futur sostenible per a les pròximes generacions.</p>
                 </div>
-                <div class="footer-col">
+                <div>
                     <h4 class="footer-title">Navegació</h4>
                     <div class="footer-links">
                         <a href="#about" class="footer-link">Sobre Nosaltres</a>
@@ -1277,7 +1564,7 @@
                         <a href="#contact" class="footer-link">Contacte</a>
                     </div>
                 </div>
-                <div class="footer-col">
+                <div>
                     <h4 class="footer-title">Legal</h4>
                     <div class="footer-links">
                         <a href="#" class="footer-link">Política de Privacitat</a>
@@ -1285,7 +1572,7 @@
                         <a href="#" class="footer-link">Cookies</a>
                     </div>
                 </div>
-                <div class="footer-col">
+                <div>
                     <h4 class="footer-title">Recursos</h4>
                     <div class="footer-links">
                         <a href="#" class="footer-link">Blog</a>
@@ -1297,26 +1584,414 @@
             <div class="footer-bottom">
                 <p class="footer-copy">© 2025 Pangola. Tots els drets reservats.</p>
                 <div class="footer-social">
-                    <a href="#" class="social-link" aria-label="LinkedIn">
-                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
-                        </svg>
+                    <a href="#" class="social-link magnetic" aria-label="LinkedIn">
+                        <svg viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
                     </a>
-                    <a href="#" class="social-link" aria-label="Twitter">
-                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
-                        </svg>
+                    <a href="#" class="social-link magnetic" aria-label="Twitter">
+                        <svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
                     </a>
-                    <a href="#" class="social-link" aria-label="Instagram">
-                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
-                        </svg>
+                    <a href="#" class="social-link magnetic" aria-label="Instagram">
+                        <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
                     </a>
                 </div>
             </div>
         </div>
     </footer>
 
-    <h1 class="visually-hidden">Pangola - Holding Empresarial de Climate Tech i Neteja Ambiental</h1>
+    <script>
+        // ==================== LENIS SMOOTH SCROLL ====================
+        const lenis = new Lenis({
+            duration: 1.2,
+            easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+            orientation: 'vertical',
+            smoothWheel: true,
+        });
+
+        function raf(time) {
+            lenis.raf(time);
+            requestAnimationFrame(raf);
+        }
+        requestAnimationFrame(raf);
+
+        // Integrate Lenis with GSAP ScrollTrigger
+        lenis.on('scroll', ScrollTrigger.update);
+        gsap.ticker.add((time) => {
+            lenis.raf(time * 1000);
+        });
+        gsap.ticker.lagSmoothing(0);
+
+        // ==================== CUSTOM CURSOR ====================
+        const cursor = document.querySelector('.cursor');
+        const cursorDot = document.querySelector('.cursor-dot');
+        let mouseX = 0, mouseY = 0;
+        let cursorX = 0, cursorY = 0;
+
+        document.addEventListener('mousemove', (e) => {
+            mouseX = e.clientX;
+            mouseY = e.clientY;
+            gsap.to(cursorDot, { x: mouseX, y: mouseY, duration: 0.1 });
+        });
+
+        gsap.ticker.add(() => {
+            cursorX += (mouseX - cursorX) * 0.15;
+            cursorY += (mouseY - cursorY) * 0.15;
+            gsap.set(cursor, { x: cursorX, y: cursorY });
+        });
+
+        // Cursor hover effects
+        const hoverElements = document.querySelectorAll('a, button, .magnetic');
+        hoverElements.forEach(el => {
+            el.addEventListener('mouseenter', () => cursor.classList.add('hover'));
+            el.addEventListener('mouseleave', () => cursor.classList.remove('hover'));
+        });
+
+        // ==================== MAGNETIC EFFECT ====================
+        document.querySelectorAll('.magnetic').forEach(el => {
+            el.addEventListener('mousemove', (e) => {
+                const rect = el.getBoundingClientRect();
+                const x = e.clientX - rect.left - rect.width / 2;
+                const y = e.clientY - rect.top - rect.height / 2;
+                gsap.to(el, { x: x * 0.3, y: y * 0.3, duration: 0.3 });
+            });
+            el.addEventListener('mouseleave', () => {
+                gsap.to(el, { x: 0, y: 0, duration: 0.5, ease: 'elastic.out(1, 0.5)' });
+            });
+        });
+
+        // ==================== LOADER ====================
+        const loader = document.querySelector('.loader');
+        const loaderLogo = document.querySelector('.loader-logo');
+        const loaderBar = document.querySelector('.loader-progress-bar');
+        const loaderText = document.querySelector('.loader-text');
+
+        const loaderTl = gsap.timeline();
+
+        loaderTl
+            .to(loaderLogo, { opacity: 1, y: 0, duration: 0.8, ease: 'power3.out' })
+            .to(loaderText, { opacity: 1, duration: 0.5 }, '-=0.3')
+            .to(loaderBar, { width: '100%', duration: 2, ease: 'power2.inOut' }, '-=0.3')
+            .to(loaderText, { opacity: 0, duration: 0.3 })
+            .to(loaderLogo, { opacity: 0, y: -20, duration: 0.5 }, '-=0.2')
+            .to(loader, {
+                yPercent: -100,
+                duration: 1,
+                ease: 'power4.inOut',
+                onComplete: () => {
+                    loader.style.display = 'none';
+                    animateHero();
+                }
+            });
+
+        // ==================== HERO ANIMATIONS ====================
+        function animateHero() {
+            const heroTl = gsap.timeline();
+
+            heroTl
+                .from('.hero-label-line', {
+                    scaleX: 0,
+                    duration: 0.8,
+                    ease: 'power3.out',
+                    stagger: 0.1
+                })
+                .from('.hero-label-text', {
+                    opacity: 0,
+                    y: 20,
+                    duration: 0.6
+                }, '-=0.4')
+                .to('.hero-title .line-inner', {
+                    y: 0,
+                    duration: 1.2,
+                    ease: 'power4.out',
+                    stagger: 0.1
+                }, '-=0.3')
+                .from('.hero-text', {
+                    opacity: 0,
+                    y: 30,
+                    duration: 0.8
+                }, '-=0.6')
+                .from('.hero-cta .btn', {
+                    opacity: 0,
+                    y: 20,
+                    duration: 0.6,
+                    stagger: 0.15
+                }, '-=0.4')
+                .from('.scroll-indicator', {
+                    opacity: 0,
+                    y: 20,
+                    duration: 0.6
+                }, '-=0.3');
+
+            // Hero gradient parallax
+            gsap.to('.hero-gradient', {
+                y: 200,
+                scrollTrigger: {
+                    trigger: '.hero',
+                    start: 'top top',
+                    end: 'bottom top',
+                    scrub: 1
+                }
+            });
+        }
+
+        // ==================== STATS COUNTER ANIMATION ====================
+        const statNumbers = document.querySelectorAll('.stat-number');
+
+        statNumbers.forEach(stat => {
+            const value = parseFloat(stat.dataset.value);
+            const prefix = stat.dataset.prefix || '';
+            const suffix = stat.dataset.suffix || '';
+
+            ScrollTrigger.create({
+                trigger: stat,
+                start: 'top 80%',
+                onEnter: () => {
+                    gsap.to(stat, {
+                        duration: 2,
+                        ease: 'power2.out',
+                        onUpdate: function() {
+                            const progress = this.progress();
+                            const currentValue = value * progress;
+                            if (value % 1 !== 0) {
+                                stat.textContent = prefix + currentValue.toFixed(1) + suffix;
+                            } else {
+                                stat.textContent = prefix + Math.round(currentValue) + suffix;
+                            }
+                        }
+                    });
+                },
+                once: true
+            });
+        });
+
+        // Stat items reveal
+        gsap.from('.stat-item', {
+            y: 60,
+            opacity: 0,
+            duration: 0.8,
+            stagger: 0.15,
+            ease: 'power3.out',
+            scrollTrigger: {
+                trigger: '.stats',
+                start: 'top 70%'
+            }
+        });
+
+        // ==================== ABOUT SECTION ANIMATIONS ====================
+        // Split about title into words
+        const aboutTitle = document.querySelector('.about-title');
+        const aboutText = aboutTitle.textContent;
+        aboutTitle.innerHTML = aboutText.split(' ').map(word =>
+            `<span class="word"><span class="word-inner">${word}</span></span>`
+        ).join(' ');
+
+        gsap.from('.about-title .word-inner', {
+            y: '100%',
+            opacity: 0,
+            duration: 0.8,
+            ease: 'power3.out',
+            stagger: 0.03,
+            scrollTrigger: {
+                trigger: '.about-title',
+                start: 'top 75%'
+            }
+        });
+
+        gsap.from('.about-text', {
+            y: 40,
+            opacity: 0,
+            duration: 0.8,
+            stagger: 0.2,
+            scrollTrigger: {
+                trigger: '.about-grid',
+                start: 'top 75%'
+            }
+        });
+
+        // ==================== VALUES HORIZONTAL SCROLL ====================
+        const valuesSection = document.querySelector('.values-section');
+        const valuesTrack = document.querySelector('.values-track');
+        const valueCards = document.querySelectorAll('.value-card');
+
+        // Calculate the scroll distance
+        const getScrollAmount = () => {
+            return valuesTrack.scrollWidth - window.innerWidth;
+        };
+
+        // Set the section height based on scroll distance
+        gsap.set(valuesSection, { height: () => valuesTrack.scrollWidth });
+
+        gsap.to(valuesTrack, {
+            x: () => -getScrollAmount(),
+            ease: 'none',
+            scrollTrigger: {
+                trigger: valuesSection,
+                start: 'top top',
+                end: () => `+=${getScrollAmount()}`,
+                pin: '.values-sticky',
+                scrub: 1,
+                invalidateOnRefresh: true,
+            }
+        });
+
+        // Value cards animation
+        valueCards.forEach((card, i) => {
+            gsap.from(card, {
+                scale: 0.9,
+                opacity: 0.5,
+                scrollTrigger: {
+                    trigger: card,
+                    containerAnimation: gsap.to(valuesTrack, { x: -getScrollAmount() }),
+                    start: 'left 80%',
+                    end: 'left 50%',
+                    scrub: 1
+                }
+            });
+        });
+
+        // ==================== PORTFOLIO ANIMATIONS ====================
+        gsap.from('.portfolio-item', {
+            y: 80,
+            opacity: 0,
+            duration: 0.8,
+            stagger: 0.15,
+            ease: 'power3.out',
+            scrollTrigger: {
+                trigger: '.portfolio-grid',
+                start: 'top 70%'
+            }
+        });
+
+        // ==================== QUOTE SECTION ANIMATIONS ====================
+        const quoteText = document.querySelector('.quote-text');
+        const quoteContent = quoteText.textContent;
+        quoteText.innerHTML = quoteContent.split(' ').map(word =>
+            `<span class="word"><span class="word-inner">${word}</span></span>`
+        ).join(' ');
+
+        gsap.from('.quote-text .word-inner', {
+            y: '100%',
+            duration: 0.6,
+            ease: 'power3.out',
+            stagger: 0.02,
+            scrollTrigger: {
+                trigger: '.quote-section',
+                start: 'top 60%'
+            }
+        });
+
+        gsap.from('.quote-author', {
+            opacity: 0,
+            x: -30,
+            duration: 0.8,
+            scrollTrigger: {
+                trigger: '.quote-author',
+                start: 'top 80%'
+            }
+        });
+
+        // Quote parallax
+        gsap.to('.quote-mark', {
+            y: -100,
+            scrollTrigger: {
+                trigger: '.quote-section',
+                start: 'top bottom',
+                end: 'bottom top',
+                scrub: 1
+            }
+        });
+
+        // ==================== CONTACT ANIMATIONS ====================
+        gsap.from('.contact-title, .contact-text', {
+            y: 40,
+            opacity: 0,
+            duration: 0.8,
+            stagger: 0.2,
+            scrollTrigger: {
+                trigger: '.contact',
+                start: 'top 70%'
+            }
+        });
+
+        gsap.from('.contact-link', {
+            x: -30,
+            opacity: 0,
+            duration: 0.6,
+            stagger: 0.1,
+            scrollTrigger: {
+                trigger: '.contact-links',
+                start: 'top 80%'
+            }
+        });
+
+        gsap.from('.form-group', {
+            y: 30,
+            opacity: 0,
+            duration: 0.6,
+            stagger: 0.1,
+            scrollTrigger: {
+                trigger: '.contact-form',
+                start: 'top 75%'
+            }
+        });
+
+        // ==================== FOOTER ANIMATIONS ====================
+        gsap.from('.footer-brand, .footer-main > div:not(.footer-brand)', {
+            y: 40,
+            opacity: 0,
+            duration: 0.6,
+            stagger: 0.1,
+            scrollTrigger: {
+                trigger: '.footer',
+                start: 'top 85%'
+            }
+        });
+
+        // ==================== SMOOTH SCROLL TO ANCHORS ====================
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    lenis.scrollTo(target, { offset: 0, duration: 1.5 });
+                }
+            });
+        });
+
+        // ==================== PARALLAX BACKGROUNDS ====================
+        gsap.to('.hero-bg', {
+            y: '30%',
+            scrollTrigger: {
+                trigger: '.hero',
+                start: 'top top',
+                end: 'bottom top',
+                scrub: 1
+            }
+        });
+
+        // ==================== MARQUEE SPEED ON SCROLL ====================
+        let marqueeSpeed = 1;
+        ScrollTrigger.create({
+            trigger: '.marquee',
+            start: 'top bottom',
+            end: 'bottom top',
+            onUpdate: (self) => {
+                const velocity = Math.abs(self.getVelocity()) / 1000;
+                marqueeSpeed = 1 + velocity * 0.5;
+                gsap.to('.marquee-track', {
+                    timeScale: marqueeSpeed,
+                    duration: 0.3
+                });
+            }
+        });
+
+        // ==================== REFRESH SCROLLTRIGGER ON RESIZE ====================
+        let resizeTimer;
+        window.addEventListener('resize', () => {
+            clearTimeout(resizeTimer);
+            resizeTimer = setTimeout(() => {
+                ScrollTrigger.refresh();
+            }, 250);
+        });
+    </script>
 </body>
 </html>
