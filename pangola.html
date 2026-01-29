@@ -1,0 +1,1322 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>PANGOLA - Climate Tech & Environmental Solutions</title>
+    <meta name="description" content="Pangola és una holding empresarial d'empreses del sector del climate tech i neteja ambiental. Invertim en un futur sostenible.">
+    <style>
+        *,
+        :after,
+        :before {
+            box-sizing: border-box;
+        }
+
+        * {
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        ol,
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        blockquote,
+        body,
+        dd,
+        dl,
+        figcaption,
+        figure,
+        h1,
+        h2,
+        h3,
+        h4,
+        input,
+        li,
+        ol,
+        p,
+        ul {
+            margin: 0;
+        }
+
+        h2,
+        h3,
+        h4 {
+            font: inherit;
+        }
+
+        html {
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            overscroll-behavior: none;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            margin: 0;
+            text-rendering: optimizeSpeed;
+            -webkit-text-size-adjust: 100%;
+            text-size-adjust: 100%;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        img,
+        svg {
+            display: block;
+            user-select: none;
+        }
+
+        button {
+            cursor: pointer;
+        }
+
+        button,
+        input,
+        textarea {
+            appearance: none;
+            background: none;
+            border: 0;
+            color: inherit;
+            font: inherit;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Custom Fonts */
+        @font-face {
+            font-display: swap;
+            font-family: 'Inter';
+            font-style: normal;
+            font-weight: 300;
+            src: url('https://fonts.gstatic.com/s/inter/v13/UcCO3FwrK3iLTeHuS_fvQtMwCp50KnMw2boKoduKmMEVuOKfAZ9hjp-Ek-_EeA.woff2') format('woff2');
+        }
+
+        @font-face {
+            font-display: swap;
+            font-family: 'Inter';
+            font-style: normal;
+            font-weight: 400;
+            src: url('https://fonts.gstatic.com/s/inter/v13/UcCO3FwrK3iLTeHuS_fvQtMwCp50KnMw2boKoduKmMEVuLyfAZ9hjp-Ek-_EeA.woff2') format('woff2');
+        }
+
+        @font-face {
+            font-display: swap;
+            font-family: 'Inter';
+            font-style: normal;
+            font-weight: 600;
+            src: url('https://fonts.gstatic.com/s/inter/v13/UcCO3FwrK3iLTeHuS_fvQtMwCp50KnMw2boKoduKmMEVuGKYAZ9hjp-Ek-_EeA.woff2') format('woff2');
+        }
+
+        @font-face {
+            font-display: swap;
+            font-family: 'Space Mono';
+            font-style: normal;
+            font-weight: 400;
+            src: url('https://fonts.gstatic.com/s/spacemono/v12/i7dPIFZifjKcF5UAWdDRYEF8RQ.woff2') format('woff2');
+        }
+
+        @font-face {
+            font-display: swap;
+            font-family: 'Space Mono';
+            font-style: normal;
+            font-weight: 700;
+            src: url('https://fonts.gstatic.com/s/spacemono/v12/i7dMIFZifjKcF5UAWdDRaPpZYFKQHg.woff2') format('woff2');
+        }
+
+        :root {
+            --size: 1600;
+            --color-cream: #f2ede5;
+            --color-tan: #9f765e;
+            --color-brown: #47210f;
+            --color-red: #d03827;
+            --color-black: #1d1d17;
+            --color-grey: #595a51;
+            --ease-out-quart: cubic-bezier(.165, .84, .44, 1);
+            --ease-out-cubic: cubic-bezier(.215, .61, .355, 1);
+            --font-s: calc((100vw / var(--size)) * 10);
+            --font-primary: 'Space Mono', monospace;
+            --font-secondary: 'Inter', sans-serif;
+        }
+
+        @media(max-width: 600px) {
+            :root {
+                --size: 375;
+            }
+        }
+
+        html {
+            font-size: var(--font-s);
+        }
+
+        body {
+            background: var(--color-black);
+            color: var(--color-cream);
+            font-family: var(--font-primary);
+            font-size: 1.6rem;
+            line-height: 1.5;
+        }
+
+        /* Header */
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 2rem;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 100;
+            mix-blend-mode: difference;
+        }
+
+        .logo {
+            font-family: var(--font-secondary);
+            font-size: 2rem;
+            font-weight: 600;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+        }
+
+        .nav {
+            display: flex;
+            gap: 3rem;
+        }
+
+        @media(max-width: 600px) {
+            .nav {
+                display: none;
+            }
+        }
+
+        .nav-link {
+            font-size: 1.2rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            position: relative;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -0.2rem;
+            left: 0;
+            width: 100%;
+            height: 1px;
+            background: currentColor;
+            transform: scaleX(0);
+            transform-origin: right;
+            transition: transform 0.4s var(--ease-out-cubic);
+        }
+
+        .nav-link:hover::after {
+            transform: scaleX(1);
+            transform-origin: left;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 140 140'%3E%3Cpath fill='%23f2ede5' d='M0 0h3.5v3.5H0z' opacity='.1'/%3E%3C/svg%3E");
+            background-size: 14rem;
+            overflow: hidden;
+        }
+
+        .hero-content {
+            text-align: center;
+            z-index: 2;
+            padding: 2rem;
+        }
+
+        .hero-subtitle {
+            font-size: 1.2rem;
+            text-transform: uppercase;
+            letter-spacing: 0.3em;
+            color: var(--color-tan);
+            margin-bottom: 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+        }
+
+        .hero-subtitle::before,
+        .hero-subtitle::after {
+            content: '';
+            width: 3rem;
+            height: 1px;
+            background: var(--color-tan);
+        }
+
+        .hero-title {
+            font-family: var(--font-secondary);
+            font-size: 8rem;
+            font-weight: 600;
+            line-height: 0.95;
+            margin-bottom: 3rem;
+            letter-spacing: -0.03em;
+        }
+
+        @media(max-width: 600px) {
+            .hero-title {
+                font-size: 4.5rem;
+            }
+        }
+
+        .hero-title span {
+            color: var(--color-tan);
+        }
+
+        .hero-text {
+            font-family: var(--font-secondary);
+            font-size: 2rem;
+            max-width: 60rem;
+            margin: 0 auto 4rem;
+            opacity: 0.8;
+        }
+
+        @media(max-width: 600px) {
+            .hero-text {
+                font-size: 1.6rem;
+            }
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 1rem;
+            background: var(--color-tan);
+            color: var(--color-black);
+            padding: 1.5rem 3rem;
+            font-size: 1.2rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            border-radius: 0.4rem;
+            clip-path: polygon(0 0, 100% 0, 100% calc(100% - 1.2rem), calc(100% - 1.2rem) 100%, 0 100%);
+            transition: clip-path 0.3s ease, background 0.3s ease;
+        }
+
+        .btn:hover {
+            clip-path: polygon(1.2rem 0, 100% 0, 100% 100%, 0 100%, 0 1.2rem);
+            background: var(--color-cream);
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 1px solid var(--color-tan);
+            color: var(--color-cream);
+        }
+
+        .btn-outline:hover {
+            background: var(--color-tan);
+            color: var(--color-black);
+        }
+
+        /* Scroll Indicator */
+        .scroll-indicator {
+            position: absolute;
+            bottom: 4rem;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .scroll-indicator span {
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            opacity: 0.5;
+        }
+
+        .scroll-line {
+            width: 1px;
+            height: 6rem;
+            background: linear-gradient(to bottom, var(--color-tan), transparent);
+            animation: scrollPulse 2s ease-in-out infinite;
+        }
+
+        @keyframes scrollPulse {
+            0%, 100% {
+                opacity: 0.3;
+                transform: scaleY(0.5);
+            }
+            50% {
+                opacity: 1;
+                transform: scaleY(1);
+            }
+        }
+
+        /* Stats Section */
+        .stats {
+            background: var(--color-brown);
+            padding: 8rem 2rem;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+            max-width: 140rem;
+            margin: 0 auto;
+        }
+
+        @media(max-width: 900px) {
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media(max-width: 600px) {
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .stat-item {
+            text-align: center;
+            padding: 4rem 2rem;
+            border: 1px solid rgba(242, 237, 229, 0.1);
+            position: relative;
+        }
+
+        .stat-item::before {
+            content: '';
+            position: absolute;
+            top: -1px;
+            left: -1px;
+            right: -1px;
+            bottom: -1px;
+            background: linear-gradient(135deg, var(--color-tan) 0%, transparent 50%);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+            pointer-events: none;
+        }
+
+        .stat-item:hover::before {
+            opacity: 0.1;
+        }
+
+        .stat-number {
+            font-family: var(--font-secondary);
+            font-size: 6rem;
+            font-weight: 600;
+            color: var(--color-tan);
+            line-height: 1;
+            margin-bottom: 1rem;
+        }
+
+        .stat-label {
+            font-size: 1.2rem;
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            opacity: 0.7;
+        }
+
+        /* About Section */
+        .about {
+            padding: 15rem 2rem;
+            position: relative;
+        }
+
+        .about-container {
+            max-width: 120rem;
+            margin: 0 auto;
+        }
+
+        .section-label {
+            display: flex;
+            align-items: center;
+            gap: 1.2rem;
+            font-size: 1.4rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 4rem;
+            color: var(--color-tan);
+        }
+
+        .section-label::before {
+            content: '';
+            width: 0.6rem;
+            height: 0.6rem;
+            background: var(--color-tan);
+            animation: blink 1.5s step-start infinite;
+        }
+
+        @keyframes blink {
+            0% { opacity: 0.2; }
+            50% { opacity: 1; }
+            100% { opacity: 0.2; }
+        }
+
+        .about-title {
+            font-family: var(--font-secondary);
+            font-size: 6rem;
+            font-weight: 400;
+            line-height: 1.1;
+            margin-bottom: 6rem;
+            max-width: 90rem;
+        }
+
+        @media(max-width: 600px) {
+            .about-title {
+                font-size: 3.5rem;
+            }
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 8rem;
+        }
+
+        @media(max-width: 900px) {
+            .about-grid {
+                grid-template-columns: 1fr;
+                gap: 4rem;
+            }
+        }
+
+        .about-text {
+            font-family: var(--font-secondary);
+            font-size: 2rem;
+            line-height: 1.6;
+            opacity: 0.85;
+        }
+
+        .about-text p + p {
+            margin-top: 2rem;
+        }
+
+        /* Values Section */
+        .values {
+            background: var(--color-cream);
+            color: var(--color-black);
+            padding: 15rem 2rem;
+        }
+
+        .values-container {
+            max-width: 140rem;
+            margin: 0 auto;
+        }
+
+        .values-header {
+            margin-bottom: 10rem;
+        }
+
+        .values-title {
+            font-family: var(--font-secondary);
+            font-size: 5rem;
+            font-weight: 400;
+            line-height: 1.1;
+            max-width: 70rem;
+        }
+
+        @media(max-width: 600px) {
+            .values-title {
+                font-size: 3rem;
+            }
+        }
+
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 4rem;
+        }
+
+        @media(max-width: 900px) {
+            .values-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .value-card {
+            padding: 4rem;
+            border: 1px solid rgba(29, 29, 23, 0.15);
+            position: relative;
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+        }
+
+        .value-card:hover {
+            transform: translateY(-0.5rem);
+            box-shadow: 0 2rem 4rem rgba(29, 29, 23, 0.1);
+        }
+
+        .value-icon {
+            width: 6rem;
+            height: 6rem;
+            background: var(--color-tan);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 3rem;
+            clip-path: polygon(0 0, 100% 0, 100% 70%, 70% 100%, 0 100%);
+        }
+
+        .value-icon svg {
+            width: 3rem;
+            height: 3rem;
+            fill: var(--color-black);
+        }
+
+        .value-title {
+            font-family: var(--font-secondary);
+            font-size: 2.4rem;
+            font-weight: 600;
+            margin-bottom: 2rem;
+        }
+
+        .value-text {
+            font-family: var(--font-secondary);
+            font-size: 1.6rem;
+            line-height: 1.7;
+            opacity: 0.75;
+        }
+
+        /* Portfolio Section */
+        .portfolio {
+            padding: 15rem 2rem;
+            background: var(--color-black);
+        }
+
+        .portfolio-container {
+            max-width: 140rem;
+            margin: 0 auto;
+        }
+
+        .portfolio-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            margin-bottom: 8rem;
+        }
+
+        @media(max-width: 900px) {
+            .portfolio-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 3rem;
+            }
+        }
+
+        .portfolio-title {
+            font-family: var(--font-secondary);
+            font-size: 5rem;
+            font-weight: 400;
+            line-height: 1.1;
+        }
+
+        @media(max-width: 600px) {
+            .portfolio-title {
+                font-size: 3rem;
+            }
+        }
+
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 3rem;
+        }
+
+        @media(max-width: 900px) {
+            .portfolio-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .portfolio-item {
+            background: rgba(242, 237, 229, 0.03);
+            border: 1px solid rgba(242, 237, 229, 0.1);
+            padding: 4rem;
+            position: relative;
+            overflow: hidden;
+            transition: background 0.4s ease, border-color 0.4s ease;
+        }
+
+        .portfolio-item:hover {
+            background: rgba(242, 237, 229, 0.06);
+            border-color: var(--color-tan);
+        }
+
+        .portfolio-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg, var(--color-tan), var(--color-red));
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.4s ease;
+        }
+
+        .portfolio-item:hover::before {
+            transform: scaleX(1);
+        }
+
+        .portfolio-category {
+            font-size: 1.1rem;
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            color: var(--color-tan);
+            margin-bottom: 2rem;
+        }
+
+        .portfolio-name {
+            font-family: var(--font-secondary);
+            font-size: 2.8rem;
+            font-weight: 600;
+            margin-bottom: 2rem;
+        }
+
+        .portfolio-desc {
+            font-family: var(--font-secondary);
+            font-size: 1.6rem;
+            line-height: 1.6;
+            opacity: 0.7;
+            margin-bottom: 3rem;
+        }
+
+        .portfolio-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.8rem;
+            font-size: 1.2rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--color-tan);
+            transition: gap 0.3s ease;
+        }
+
+        .portfolio-link:hover {
+            gap: 1.5rem;
+        }
+
+        .portfolio-link svg {
+            width: 1.2rem;
+            height: 1.2rem;
+            fill: currentColor;
+        }
+
+        /* Quote Section */
+        .quote {
+            background: var(--color-tan);
+            color: var(--color-black);
+            padding: 12rem 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .quote::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: repeating-linear-gradient(
+                to bottom,
+                transparent,
+                transparent 0.4rem,
+                var(--color-tan) 0.4rem,
+                var(--color-tan) 15rem
+            ),
+            repeating-linear-gradient(
+                to right,
+                #8a6550,
+                #8a6550 0.4rem,
+                var(--color-tan) 0.4rem,
+                var(--color-tan) 15rem
+            );
+            opacity: 0.3;
+        }
+
+        .quote-container {
+            max-width: 100rem;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .quote-mark {
+            font-family: var(--font-secondary);
+            font-size: 12rem;
+            line-height: 1;
+            opacity: 0.2;
+            position: absolute;
+            top: -4rem;
+            left: -2rem;
+        }
+
+        .quote-text {
+            font-family: var(--font-secondary);
+            font-size: 4rem;
+            font-weight: 400;
+            line-height: 1.3;
+            margin-bottom: 4rem;
+        }
+
+        @media(max-width: 600px) {
+            .quote-text {
+                font-size: 2.5rem;
+            }
+        }
+
+        .quote-author {
+            font-size: 1.4rem;
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+        }
+
+        /* Contact Section */
+        .contact {
+            padding: 15rem 2rem;
+            background: var(--color-brown);
+        }
+
+        .contact-container {
+            max-width: 120rem;
+            margin: 0 auto;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 8rem;
+        }
+
+        @media(max-width: 900px) {
+            .contact-grid {
+                grid-template-columns: 1fr;
+                gap: 6rem;
+            }
+        }
+
+        .contact-title {
+            font-family: var(--font-secondary);
+            font-size: 5rem;
+            font-weight: 400;
+            line-height: 1.1;
+            margin-bottom: 3rem;
+        }
+
+        @media(max-width: 600px) {
+            .contact-title {
+                font-size: 3rem;
+            }
+        }
+
+        .contact-text {
+            font-family: var(--font-secondary);
+            font-size: 1.8rem;
+            line-height: 1.6;
+            opacity: 0.8;
+            margin-bottom: 4rem;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .contact-link {
+            font-family: var(--font-secondary);
+            font-size: 1.8rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            transition: color 0.3s ease;
+        }
+
+        .contact-link:hover {
+            color: var(--color-tan);
+        }
+
+        .contact-link svg {
+            width: 2rem;
+            height: 2rem;
+            fill: var(--color-tan);
+        }
+
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .form-group {
+            position: relative;
+        }
+
+        .form-input {
+            width: 100%;
+            padding: 1.5rem 0;
+            font-family: var(--font-secondary);
+            font-size: 1.6rem;
+            background: transparent;
+            border: none;
+            border-bottom: 1px solid rgba(242, 237, 229, 0.3);
+            color: var(--color-cream);
+            transition: border-color 0.3s ease;
+        }
+
+        .form-input:focus {
+            outline: none;
+            border-color: var(--color-tan);
+        }
+
+        .form-input::placeholder {
+            color: rgba(242, 237, 229, 0.5);
+        }
+
+        .form-textarea {
+            min-height: 12rem;
+            resize: vertical;
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--color-black);
+            padding: 8rem 2rem 4rem;
+            border-top: 1px solid rgba(242, 237, 229, 0.1);
+        }
+
+        .footer-container {
+            max-width: 140rem;
+            margin: 0 auto;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 4rem;
+            margin-bottom: 8rem;
+        }
+
+        @media(max-width: 900px) {
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media(max-width: 600px) {
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .footer-brand {
+            max-width: 35rem;
+        }
+
+        .footer-logo {
+            font-family: var(--font-secondary);
+            font-size: 2.4rem;
+            font-weight: 600;
+            letter-spacing: 0.15em;
+            margin-bottom: 2rem;
+        }
+
+        .footer-desc {
+            font-family: var(--font-secondary);
+            font-size: 1.4rem;
+            line-height: 1.7;
+            opacity: 0.6;
+        }
+
+        .footer-title {
+            font-size: 1.2rem;
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            margin-bottom: 2rem;
+            color: var(--color-tan);
+        }
+
+        .footer-links {
+            display: flex;
+            flex-direction: column;
+            gap: 1.2rem;
+        }
+
+        .footer-link {
+            font-family: var(--font-secondary);
+            font-size: 1.4rem;
+            opacity: 0.7;
+            transition: opacity 0.3s ease, color 0.3s ease;
+        }
+
+        .footer-link:hover {
+            opacity: 1;
+            color: var(--color-tan);
+        }
+
+        .footer-bottom {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 4rem;
+            border-top: 1px solid rgba(242, 237, 229, 0.1);
+        }
+
+        @media(max-width: 600px) {
+            .footer-bottom {
+                flex-direction: column;
+                gap: 2rem;
+                text-align: center;
+            }
+        }
+
+        .footer-copy {
+            font-size: 1.2rem;
+            opacity: 0.5;
+        }
+
+        .footer-social {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .social-link {
+            width: 4rem;
+            height: 4rem;
+            border: 1px solid rgba(242, 237, 229, 0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: border-color 0.3s ease, background 0.3s ease;
+        }
+
+        .social-link:hover {
+            border-color: var(--color-tan);
+            background: var(--color-tan);
+        }
+
+        .social-link svg {
+            width: 1.6rem;
+            height: 1.6rem;
+            fill: var(--color-cream);
+            transition: fill 0.3s ease;
+        }
+
+        .social-link:hover svg {
+            fill: var(--color-black);
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(2rem);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .animate {
+            animation: fadeIn 0.8s var(--ease-out-cubic) forwards;
+        }
+
+        /* Utility */
+        .visually-hidden {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <a href="#" class="logo">PANGOLA</a>
+        <nav class="nav">
+            <a href="#about" class="nav-link">Sobre Nosaltres</a>
+            <a href="#values" class="nav-link">Valors</a>
+            <a href="#portfolio" class="nav-link">Portfolio</a>
+            <a href="#contact" class="nav-link">Contacte</a>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <p class="hero-subtitle">Climate Tech & Environmental Solutions</p>
+            <h1 class="hero-title">Invertim en el <span>futur</span> del planeta</h1>
+            <p class="hero-text">Pangola és una holding empresarial que lidera la inversió en empreses de climate tech i neteja ambiental, impulsant solucions innovadores per a un món més sostenible.</p>
+            <div style="display: flex; gap: 2rem; justify-content: center; flex-wrap: wrap;">
+                <a href="#portfolio" class="btn">Descobreix el Portfolio</a>
+                <a href="#contact" class="btn btn-outline">Contacta'ns</a>
+            </div>
+        </div>
+        <div class="scroll-indicator">
+            <span>Scroll</span>
+            <div class="scroll-line"></div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats">
+        <div class="stats-grid">
+            <div class="stat-item">
+                <div class="stat-number">12</div>
+                <div class="stat-label">Empreses al Portfolio</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">€85M</div>
+                <div class="stat-label">Capital Invertit</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">2.4M</div>
+                <div class="stat-label">Tones CO₂ Evitades</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">8</div>
+                <div class="stat-label">Països d'Operació</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="about-container">
+            <div class="section-label">Qui Som</div>
+            <h2 class="about-title">Construïm el futur sostenible a través de la inversió estratègica en tecnologia climàtica</h2>
+            <div class="about-grid">
+                <div class="about-text">
+                    <p>Pangola neix de la convicció que el canvi climàtic és el repte més urgent del nostre temps, i que les solucions tecnològiques són clau per afrontar-lo. Som una holding empresarial especialitzada en identificar, invertir i fer créixer empreses que lideren la transició cap a una economia sostenible.</p>
+                </div>
+                <div class="about-text">
+                    <p>El nostre equip combina experiència en capital risc, tecnologia i sostenibilitat per oferir no només finançament, sinó també suport estratègic i operatiu a les nostres empreses participades. Creiem en el poder transformador de la innovació per crear valor econòmic i impacte ambiental positiu.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Values Section -->
+    <section class="values" id="values">
+        <div class="values-container">
+            <div class="values-header">
+                <div class="section-label" style="color: var(--color-brown);">Els Nostres Valors</div>
+                <h2 class="values-title">Principis que guien cada decisió d'inversió</h2>
+            </div>
+            <div class="values-grid">
+                <div class="value-card">
+                    <div class="value-icon">
+                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                        </svg>
+                    </div>
+                    <h3 class="value-title">Impacte Mesurable</h3>
+                    <p class="value-text">Cada inversió ha de demostrar un impacte ambiental quantificable. Utilitzem mètriques rigoroses per avaluar la contribució real de cada empresa a la sostenibilitat.</p>
+                </div>
+                <div class="value-card">
+                    <div class="value-icon">
+                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M9.4 16.6L4.8 12l4.6-4.6L8 6l-6 6 6 6 1.4-1.4zm5.2 0l4.6-4.6-4.6-4.6L16 6l6 6-6 6-1.4-1.4z"/>
+                        </svg>
+                    </div>
+                    <h3 class="value-title">Innovació Tecnològica</h3>
+                    <p class="value-text">Busquem empreses amb tecnologies disruptives que puguin escalar solucions climàtiques. La innovació és el motor del canvi que necessitem.</p>
+                </div>
+                <div class="value-card">
+                    <div class="value-icon">
+                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/>
+                        </svg>
+                    </div>
+                    <h3 class="value-title">Col·laboració</h3>
+                    <p class="value-text">Treballem colze a colze amb els fundadors i equips de les nostres empreses participades, aportant experiència, xarxa de contactes i recursos estratègics.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section class="portfolio" id="portfolio">
+        <div class="portfolio-container">
+            <div class="portfolio-header">
+                <div>
+                    <div class="section-label">El Nostre Portfolio</div>
+                    <h2 class="portfolio-title">Empreses que lideren el canvi</h2>
+                </div>
+                <a href="#contact" class="btn">Presenta el teu projecte</a>
+            </div>
+            <div class="portfolio-grid">
+                <article class="portfolio-item">
+                    <div class="portfolio-category">Energia Renovable</div>
+                    <h3 class="portfolio-name">SolarGrid Tech</h3>
+                    <p class="portfolio-desc">Plataforma intel·ligent de gestió d'energia solar distribuïda per a comunitats i empreses, optimitzant la producció i el consum en temps real.</p>
+                    <a href="#" class="portfolio-link">
+                        Més informació
+                        <svg viewBox="0 0 7 7" xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd" d="M1.2 7L0.5 6.3L5.3 1.5H1V0.5H7V6.5H6V2.2L1.2 7Z"/>
+                        </svg>
+                    </a>
+                </article>
+                <article class="portfolio-item">
+                    <div class="portfolio-category">Economia Circular</div>
+                    <h3 class="portfolio-name">ReLoop Materials</h3>
+                    <p class="portfolio-desc">Tecnologia de reciclatge avançat que transforma residus plàstics en matèries primeres d'alta qualitat per a la indústria.</p>
+                    <a href="#" class="portfolio-link">
+                        Més informació
+                        <svg viewBox="0 0 7 7" xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd" d="M1.2 7L0.5 6.3L5.3 1.5H1V0.5H7V6.5H6V2.2L1.2 7Z"/>
+                        </svg>
+                    </a>
+                </article>
+                <article class="portfolio-item">
+                    <div class="portfolio-category">Neteja Ambiental</div>
+                    <h3 class="portfolio-name">AquaPure Systems</h3>
+                    <p class="portfolio-desc">Sistemes de purificació d'aigua mitjançant tecnologia de membrana avançada, eliminant microplàstics i contaminants emergents.</p>
+                    <a href="#" class="portfolio-link">
+                        Més informació
+                        <svg viewBox="0 0 7 7" xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd" d="M1.2 7L0.5 6.3L5.3 1.5H1V0.5H7V6.5H6V2.2L1.2 7Z"/>
+                        </svg>
+                    </a>
+                </article>
+                <article class="portfolio-item">
+                    <div class="portfolio-category">Captura de Carboni</div>
+                    <h3 class="portfolio-name">CarbonSink AI</h3>
+                    <p class="portfolio-desc">Intel·ligència artificial per optimitzar projectes de reforestació i segrestar carboni de manera eficient i verificable.</p>
+                    <a href="#" class="portfolio-link">
+                        Més informació
+                        <svg viewBox="0 0 7 7" xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd" d="M1.2 7L0.5 6.3L5.3 1.5H1V0.5H7V6.5H6V2.2L1.2 7Z"/>
+                        </svg>
+                    </a>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quote Section -->
+    <section class="quote">
+        <div class="quote-container">
+            <div class="quote-mark">"</div>
+            <blockquote class="quote-text">El climate tech no és només una oportunitat d'inversió, és la nostra responsabilitat generacional. A Pangola, cada euro invertit és un pas cap a un futur habitable.</blockquote>
+            <p class="quote-author">Marta Solé, CEO de Pangola</p>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="contact-container">
+            <div class="contact-grid">
+                <div class="contact-info-wrapper">
+                    <div class="section-label">Contacte</div>
+                    <h2 class="contact-title">Parlem del futur</h2>
+                    <p class="contact-text">Ja siguis un emprenedor amb una idea revolucionària o un inversor que busca impacte, estem aquí per escoltar-te.</p>
+                    <div class="contact-info">
+                        <a href="mailto:info@pangola.cat" class="contact-link">
+                            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+                            </svg>
+                            info@pangola.cat
+                        </a>
+                        <a href="tel:+34932000000" class="contact-link">
+                            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
+                            </svg>
+                            +34 93 200 00 00
+                        </a>
+                        <a href="#" class="contact-link">
+                            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+                            </svg>
+                            Barcelona, Catalunya
+                        </a>
+                    </div>
+                </div>
+                <form class="contact-form" action="#" method="POST">
+                    <div class="form-group">
+                        <input type="text" name="name" placeholder="Nom complet" required class="form-input">
+                    </div>
+                    <div class="form-group">
+                        <input type="email" name="email" placeholder="Correu electrònic" required class="form-input">
+                    </div>
+                    <div class="form-group">
+                        <input type="text" name="company" placeholder="Empresa (opcional)" class="form-input">
+                    </div>
+                    <div class="form-group">
+                        <textarea name="message" placeholder="El teu missatge" required class="form-input form-textarea"></textarea>
+                    </div>
+                    <button type="submit" class="btn">Enviar missatge</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <div class="footer-logo">PANGOLA</div>
+                    <p class="footer-desc">Holding empresarial especialitzada en climate tech i neteja ambiental. Invertim en un futur sostenible per a les pròximes generacions.</p>
+                </div>
+                <div class="footer-col">
+                    <h4 class="footer-title">Navegació</h4>
+                    <div class="footer-links">
+                        <a href="#about" class="footer-link">Sobre Nosaltres</a>
+                        <a href="#values" class="footer-link">Valors</a>
+                        <a href="#portfolio" class="footer-link">Portfolio</a>
+                        <a href="#contact" class="footer-link">Contacte</a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h4 class="footer-title">Legal</h4>
+                    <div class="footer-links">
+                        <a href="#" class="footer-link">Política de Privacitat</a>
+                        <a href="#" class="footer-link">Avís Legal</a>
+                        <a href="#" class="footer-link">Cookies</a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h4 class="footer-title">Recursos</h4>
+                    <div class="footer-links">
+                        <a href="#" class="footer-link">Blog</a>
+                        <a href="#" class="footer-link">Premsa</a>
+                        <a href="#" class="footer-link">Carreres</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p class="footer-copy">© 2025 Pangola. Tots els drets reservats.</p>
+                <div class="footer-social">
+                    <a href="#" class="social-link" aria-label="LinkedIn">
+                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+                        </svg>
+                    </a>
+                    <a href="#" class="social-link" aria-label="Twitter">
+                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+                        </svg>
+                    </a>
+                    <a href="#" class="social-link" aria-label="Instagram">
+                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <h1 class="visually-hidden">Pangola - Holding Empresarial de Climate Tech i Neteja Ambiental</h1>
+</body>
+</html>
